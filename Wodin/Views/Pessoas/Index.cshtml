@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Wodin.Models.Pessoa>
+
+@{
+    ViewData["Title"] = "Listagem de pessoas";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h2>@ViewData["Message"]</h2>
+<p>
+    <a asp-action="Create" class="btn btn-default" title="Deseja cadastrar nova pessoa?"><span class="glyphicon glyphicon-plus-sign"></span> Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PessoaCliente.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PessoaFisica.CPF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PessoaFornecedor.Fornecedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PessoaJuridica.CNPJ)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PessoaUsuario.Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ativo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PessoaCliente.Cliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PessoaFisica.CPF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PessoaFornecedor.Fornecedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PessoaJuridica.CNPJ)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PessoaUsuario.Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ativo)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.Id">Editar</a>
+                <a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id">detalhes</a>
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

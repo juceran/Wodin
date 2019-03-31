@@ -1,0 +1,52 @@
+﻿@model Wodin.Models.MenuLi
+
+@{
+    ViewData["Title"] = "Editar SubMenu";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h4>@ViewData["Message"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MenuUlId" class="control-label"></label>
+                <select asp-for="MenuUlId" class="form-control" asp-items="ViewBag.MenuUlId"></select>
+                <span asp-validation-for="MenuUlId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubMenu" class="control-label"></label>
+                <input asp-for="SubMenu" class="form-control" />
+                <span asp-validation-for="SubMenu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Url" class="control-label"></label>
+                <input asp-for="Url" class="form-control" />
+                <span asp-validation-for="Url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Titulo" class="control-label"></label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Ativo" /> @Html.DisplayNameFor(model => model.Ativo)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> Salvar</button>
+                <a asp-action="Index" class="btn btn-primary"><span class="glyphicon glyphicon-th-list"></span> Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

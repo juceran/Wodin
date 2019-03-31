@@ -1,0 +1,57 @@
+﻿@model Wodin.Models.Login
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2 style="text-align:center">@ViewData["Title"]</h2>
+@{
+    try
+    {
+        if (ViewData["acesso"].ToString() != "")
+        {
+            <div class="alert alert-danger text-center login-form">
+                <strong>Atenção! </strong><h2>@ViewData["acesso"]</h2> 
+            </div>
+        }
+    }
+    catch { }
+}
+
+<div class="login-form">
+    <form asp-controller="Logins" asp-action="Acessar" method="post">
+        <h2 class="text-center">Sistema Vendas</h2>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                <input type="text" class="form-control" asp-for="CNPJ" placeholder="CNPJ da empresa" onkeypress="return SomenteNumero(event);" onBlur="ValidarCPForCNPJ(this,this.value);" onkeyup="FormataCPForCNPJ(this,event);" maxlength="18" />
+            </div>
+            <span asp-validation-for="CNPJ" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" class="form-control" asp-for="Usuario" placeholder="Usuário" />
+            </div>
+            <span asp-validation-for="Usuario" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input type="password" class="form-control" asp-for="Senha" placeholder="Senha" />
+            </div>
+            <span asp-validation-for="Senha" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary login-btn btn-block">Acessar</button>
+        </div>
+        <div class="clearfix">
+            <label class="pull-left checkbox-inline"><input type="checkbox"> Lembrar meu acesso</label>
+            <a href="#" class="pull-right">Esqueceu a senha?</a>
+        </div>
+        <p class="text-center text-muted small;" style="color:#242424;">Não tem uma conta?<a href="#"> Crie aqui!</a></p>
+    </form>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

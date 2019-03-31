@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Wodin.Models.FormaPagamento>
+
+@{
+    ViewData["Title"] = "Listagem de Formas de Pagamentos";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h2>@ViewData["Message"]</h2>
+<p>
+    <a asp-action="Create" class="btn btn-default" title="Deseja cadastrar nova forma de pagamento?"><span class="glyphicon glyphicon-plus-sign"></span> Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GeraFinanceiro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaixaLancamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CartaoCredito)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CartaoCreditoVencimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CartaoCreditoMelhorDia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ativo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GeraFinanceiro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BaixaLancamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CartaoCredito)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CartaoCreditoVencimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CartaoCreditoMelhorDia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empresa.Fantasia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ativo)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.Id" title="Editar forma de pagamento"><span class="glyphicon glyphicon-edit"></span></a>
+                <a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id" title="Detalhes da forma de pagamento"><span class="glyphicon glyphicon-eye-open"></span></a>
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id" title="Deletar forma de pagamento"><span class="glyphicon glyphicon-trash"></span></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

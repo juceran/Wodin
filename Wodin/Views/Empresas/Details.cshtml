@@ -1,0 +1,150 @@
+﻿@model Wodin.Models.Empresa
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Empresa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Database)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Database)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CNPJ)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CNPJ)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IE)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IE)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RazaoSocial)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RazaoSocial)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Fantasia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Fantasia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataAbertura)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataAbertura)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Website)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Website)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CEP)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CEP)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Logradouro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Logradouro)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Complemento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Complemento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Bairro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Bairro)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cidade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Uf)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Uf)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Unidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Unidade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IBGE)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IBGE)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GIA)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GIA)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ativo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ativo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCadastro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataCadastro)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UltimaAtualizacao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UltimaAtualizacao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Deletado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Deletado)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DeletadoData)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DeletadoData)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

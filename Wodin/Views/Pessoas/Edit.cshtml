@@ -1,0 +1,301 @@
+﻿@model Wodin.Models.Pessoa
+
+@{
+    ViewData["Title"] = "Editar Pessoa";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h4>@ViewData["Message"]</h4>
+<hr />
+<div class="row">
+    <div id="" class="container">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <ul class="nav nav-pills" role="tab">
+                <li class="active"> <a href="#pessoa" data-toggle="tab">Pessoa</a></li>
+                <li>                <a href="#cliente" data-toggle="tab" id="tab_cliente">Cliente</a></li>
+                <li>                <a href="#fornecedor" data-toggle="tab" id="tab_fornecedor">Fornecedor</a></li>
+                <li>                <a href="#fisica" data-toggle="tab" id="tab_fisica">Fisica</a></li>
+                <li>                <a href="#juridica" data-toggle="tab" id="tab_juridica">Juridica</a></li>
+                <li>                <a href="#usuario" data-toggle="tab" id="tab_usuario">Usuário</a></li>
+                @*<li>                <a href="#email" data-toggle="tab">Email</a></li>
+        <li>                <a href="#endereco" data-toggle="tab">Endereço</a></li>
+        <li>                <a href="#funcionario" data-toggle="tab">Funcionário</a></li>*@
+            </ul>
+            <div class="tab-content clearfix">
+                <div class="tab-pane active" id="pessoa">
+                    <div class="form-group col-md-9">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" asp-for="EmpresaId" />
+
+                        <label asp-for="Descricao" class="control-label"></label>
+                        <input asp-for="Descricao" class="form-control" placeholder="Nome principal" />
+                        <span asp-validation-for="Descricao" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="DataCadastro" control-label"></label>
+                        <input asp-for="DataCadastro" class="form-control" readonly="readonly" />
+                    </div>
+                    <div class="form-group col-md-1">
+                        <div class="checkbox">
+                            <label>
+                                <input asp-for="PessoaCliente.Cliente" /> @Html.DisplayNameFor(model => model.PessoaCliente.Cliente)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <div class="checkbox">
+                            <label>
+                                <input asp-for="PessoaFornecedor.Fornecedor" /> @Html.DisplayNameFor(model => model.PessoaFornecedor.Fornecedor)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <div class="checkbox">
+                            <label>
+                                <input asp-for="PessoaFisica.Fisica" /> @Html.DisplayNameFor(model => model.PessoaFisica.Fisica)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <div class="checkbox">
+                            <label>
+                                <input asp-for="PessoaJuridica.Juridica" /> @Html.DisplayNameFor(model => model.PessoaJuridica.Juridica)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <div class="checkbox">
+                            <label>
+                                <input asp-for="PessoaUsuario.User" /> @Html.DisplayNameFor(model => model.PessoaUsuario.User)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <div class="checkbox">
+                            <label>
+                                <input asp-for="Ativo" /> @Html.DisplayNameFor(model => model.Ativo)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="cliente">
+                    <div class="form-group col-md-4">
+                        <input type="hidden" asp-for="PessoaCliente.Id" />
+                        <input type="hidden" asp-for="PessoaCliente.PessoaId" />
+                        <label asp-for="PessoaCliente.LimiteCredito" class="control-label"></label>
+                        <input asp-for="PessoaCliente.LimiteCredito" class="form-control" style="text-align: right;" asp-format="{0:N}" placeholder="Valor do Limite de Crédito" onkeypress="FormataValor(this.id, 10, event); return SomenteNumero(event);" />
+                        <span asp-validation-for="PessoaCliente.LimiteCredito" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="PessoaCliente.FormaRecebimentoId" class="control-label"></label>
+                        <select asp-for="PessoaCliente.FormaRecebimentoId" class="form-control" asp-items="ViewBag.FormaRecebimentoId"></select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="PessoaCliente.PrazoRecebimentoId" class="control-label"></label>
+                        <select asp-for="PessoaCliente.PrazoRecebimentoId" class="form-control" asp-items="ViewBag.PrazoRecebimentoId"></select>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <div class="checkbox">
+                            <label>
+                                <input asp-for="PessoaCliente.Ativo" /> @Html.DisplayNameFor(model => model.PessoaCliente.Ativo)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="fornecedor">
+                    <div class="form-group col-md-4">
+                        <input type="hidden" asp-for="PessoaFornecedor.Id" />
+                        <input type="hidden" asp-for="PessoaFornecedor.PessoaId" />
+
+                        <label asp-for="PessoaFornecedor.FormaPagamentoId" class="control-label"></label>
+                        <select asp-for="PessoaFornecedor.FormaPagamentoId" class="form-control" asp-items="ViewBag.FormaPagamentoId"></select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="PessoaFornecedor.PrazoPagamentoId" class="control-label"></label>
+                        <select asp-for="PessoaFornecedor.PrazoPagamentoId" class="form-control" asp-items="ViewBag.PrazoPagamentoId"></select>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <div class="checkbox">
+                            <label>
+                                <input asp-for="PessoaFornecedor.Ativo" /> @Html.DisplayNameFor(model => model.PessoaFornecedor.Ativo)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="fisica">
+                    <div class="form-group col-md-4">
+                        <input type="hidden" asp-for="PessoaFisica.Id" />
+                        <input type="hidden" asp-for="PessoaFisica.PessoaId" />
+                        <label asp-for="PessoaFisica.CPF" class="control-label"></label>
+                        <input asp-for="PessoaFisica.CPF" class="form-control" placeholder="C.P.F." onkeypress="return SomenteNumero(event);" onBlur="ValidarCPForCNPJ(this,this.value);" onkeyup="FormataCPForCNPJ(this,event);" maxlength="18" />
+                        <span asp-validation-for="PessoaFisica.CPF" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="PessoaFisica.RG" class="control-label"></label>
+                        <input asp-for="PessoaFisica.RG" class="form-control" placeholder="Número do R.G." />
+                        <span asp-validation-for="PessoaFisica.RG" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="PessoaFisica.Sexo" class="control-label"></label>
+                        <select asp-for="PessoaFisica.Sexo" asp-items="Html.GetEnumSelectList<Wodin.Models.Enums.Sexo>()" class="form-control"></select>
+                    </div>
+                    <div class="form-group col-md-9">
+                        <label asp-for="PessoaFisica.Nome" class="control-label"></label>
+                        <input asp-for="PessoaFisica.Nome" class="form-control" placeholder="Nome" />
+                        <span asp-validation-for="PessoaFisica.Nome" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="PessoaFisica.DataNascimento" control-label"></label>
+                        <input asp-for="PessoaFisica.DataNascimento" class="form-control" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="PessoaFisica.Pai" class="control-label"></label>
+                        <input asp-for="PessoaFisica.Pai" class="form-control" placeholder="Nome do Pai" />
+                        <span asp-validation-for="PessoaFisica.Pai" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="PessoaFisica.Mae" class="control-label"></label>
+                        <input asp-for="PessoaFisica.Mae" class="form-control" placeholder="Nome da Mãe" />
+                        <span asp-validation-for="PessoaFisica.Mae" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <div class="checkbox">
+                            <label>
+                                <input asp-for="PessoaFisica.Ativo" /> @Html.DisplayNameFor(model => model.PessoaFisica.Ativo)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="juridica">
+                    <div class="form-group col-md-4">
+                        <input type="hidden" asp-for="PessoaJuridica.Id" />
+                        <input type="hidden" asp-for="PessoaJuridica.PessoaId" />
+                        <label asp-for="PessoaJuridica.CNPJ" class="control-label"></label>
+                        <input asp-for="PessoaJuridica.CNPJ" class="form-control" placeholder="C.N.P.J." onkeypress="return SomenteNumero(event);" onBlur="ValidarCPForCNPJ(this,this.value);" onkeyup="FormataCPForCNPJ(this,event);" maxlength="18" />
+                        <span asp-validation-for="PessoaJuridica.CNPJ" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="PessoaJuridica.IE" class="control-label"></label>
+                        <input asp-for="PessoaJuridica.IE" class="form-control" placeholder="Isncrição Estadual" />
+                        <span asp-validation-for="PessoaJuridica.IE" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="PessoaJuridica.DataAbertura" class="control-label"></label>
+                        <input asp-for="PessoaJuridica.DataAbertura" class="form-control" />                        
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="PessoaJuridica.RazaoSocial" class="control-label"></label>
+                        <input asp-for="PessoaJuridica.RazaoSocial" class="form-control" placeholder="Razão Social" />
+                        <span asp-validation-for="PessoaJuridica.RazaoSocial" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="PessoaJuridica.Fantasia" class="control-label"></label>
+                        <input asp-for="PessoaJuridica.Fantasia" class="form-control" placeholder="Nome Fantasia" />
+                        <span asp-validation-for="PessoaJuridica.Fantasia" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <div class="checkbox">
+                            <label>
+                                <input asp-for="PessoaJuridica.Ativo" /> @Html.DisplayNameFor(model => model.PessoaJuridica.Ativo)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="usuario">
+                    <div class="form-group col-md-4">
+                        <input type="hidden" asp-for="PessoaUsuario.Id" />
+                        <input type="hidden" asp-for="PessoaUsuario.PessoaId" />
+                        <label asp-for="PessoaUsuario.Usuario" class="control-label"></label>
+                        <input asp-for="PessoaUsuario.Usuario" class="form-control" placeholder="Usuario" />
+                        <span asp-validation-for="PessoaUsuario.Usuario" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <div class="checkbox">
+                            <label>
+                                <input asp-for="PessoaUsuario.Ativo" /> @Html.DisplayNameFor(model => model.PessoaUsuario.Ativo)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="email">
+                    <div class="form-group">
+                        <h3>email</h3>
+                    </div>
+                </div>
+                <div class="tab-pane" id="endereco">
+                    <h3>endereço</h3>
+                </div>
+                <div class="tab-pane" id="funcionario">
+                    <div class="form-group col-md-4">
+                        <h3>funcionario</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-primary">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+        if ($("#PessoaCliente_Cliente").is(":checked") == true) { $('#tab_cliente').show(); } else { $('#tab_cliente').hide(); }
+        if ($("#PessoaFornecedor_Fornecedor").is(":checked") == true) { $('#tab_fornecedor').show(); } else { $('#tab_fornecedor').hide(); }
+        if ($("#PessoaFisica_Fisica").is(":checked") == true) { $('#tab_fisica').show(); } else { $('#tab_fisica').hide(); }
+        if ($("#PessoaJuridica_Juridica").is(":checked") == true) { $('#tab_juridica').show(); } else { $('#tab_juridica').hide(); }
+        if ($("#PessoaUsuario_User").is(":checked") == true) { $('#tab_usuario').show(); } else { $('#tab_usuario').hide(); }
+
+        $('#PessoaCliente_Cliente').change(
+            function () {
+                if (this.checked) {
+                    $('#tab_cliente').show();
+                }
+                else {
+                    $('#tab_cliente').hide();
+                }
+            });
+        $('#PessoaFornecedor_Fornecedor').change(
+            function () {
+                if (this.checked) {
+                    $('#tab_fornecedor').show();
+                }
+                else {
+                    $('#tab_fornecedor').hide();
+                }
+            });
+        $('#PessoaFisica_Fisica').change(
+            function () {
+                if (this.checked) {
+                    $('#tab_fisica').show();
+                }
+                else {
+                    $('#tab_fisica').hide();
+                }
+            });
+        $('#PessoaJuridica_Juridica').change(
+            function () {
+                if (this.checked) {
+                    $('#tab_juridica').show();
+                }
+                else {
+                    $('#tab_juridica').hide();
+                }
+            });
+        $('#PessoaUsuario_User').change(
+            function () {
+                if (this.checked) {
+                    $('#tab_usuario').show();
+                }
+                else {
+                    $('#tab_usuario').hide();
+                }
+            });
+    </script>
+}
+

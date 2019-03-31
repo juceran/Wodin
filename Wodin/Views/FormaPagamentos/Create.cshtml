@@ -1,0 +1,107 @@
+﻿@model Wodin.Models.FormaPagamento
+
+
+@{
+    ViewData["Title"] = "Nova Forma de Pagamento";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h4>@ViewData["Message"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FormaPagamentoTipo" class="control-label"></label>
+                <select asp-for="FormaPagamentoTipo" asp-items="Html.GetEnumSelectList<Wodin.Models.Enums.FormaPagamentoTipo>()" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="GeraFinanceiro" /> @Html.DisplayNameFor(model => model.GeraFinanceiro)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="BaixaLancamento" /> @Html.DisplayNameFor(model => model.BaixaLancamento)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="CartaoCredito" /> @Html.DisplayNameFor(model => model.CartaoCredito)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group" id="CartaoCreditoBandeira">
+                <label asp-for="CartaoDeCredito" class="control-label"></label>
+                <select asp-for="CartaoDeCredito" asp-items="Html.GetEnumSelectList<Wodin.Models.Enums.CartaoDeCredito>()" class="form-control"></select>
+            </div>
+                <div class="form-group" id="CartaoCreditoVencimento">
+                    <label asp-for="CartaoCreditoVencimento" class="control-label"></label>
+                    <input asp-for="CartaoCreditoVencimento" class="form-control" />
+                    <span asp-validation-for="CartaoCreditoVencimento" class="text-danger"></span>
+                </div>
+                <div class="form-group" id="CartaoCreditoMelhorDia">
+                    <label asp-for="CartaoCreditoMelhorDia" class="control-label"></label>
+                    <input asp-for="CartaoCreditoMelhorDia" class="form-control" />
+                    <span asp-validation-for="CartaoCreditoMelhorDia" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EmpresaId" class="control-label"></label>
+                    <select asp-for="EmpresaId" class="form-control" asp-items="ViewBag.EmpresaId"></select>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="Ativo" /> @Html.DisplayNameFor(model => model.Ativo)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> Salvar</button>
+                    <a asp-action="Index" class="btn btn-primary"><span class="glyphicon glyphicon-th-list"></span> Voltar</a>
+                </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+        if ($("#CartaoCredito").is(":checked") == false) {
+            $('#CartaoCreditoVencimento').hide();
+            $('#CartaoCreditoMelhorDia').hide();
+            $('#CartaoCreditoBandeira').hide();
+        }
+        else {
+            $('#CartaoCreditoVencimento').show();
+            $('#CartaoCreditoMelhorDia').show();
+            $('#CartaoCreditoBandeira').show();
+        }
+
+        $('#CartaoCredito').change(
+            function () {
+                if (this.checked) {
+                    $('#CartaoCreditoVencimento').show();
+                    $('#CartaoCreditoMelhorDia').show();
+                    $('#CartaoCreditoBandeira').show();
+                }
+                else {
+                    $('#CartaoCreditoVencimento').hide();
+                    $('#CartaoCreditoMelhorDia').hide();
+                    $('#CartaoCreditoBandeira').hide();
+                }
+            });
+    </script>
+}
+
