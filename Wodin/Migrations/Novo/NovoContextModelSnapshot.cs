@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Wodin.Context;
 
-namespace Wodin.Migrations
+namespace Wodin.Migrations.Novo
 {
-    [DbContext(typeof(WodinContext))]
-    partial class WodinContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(NovoContext))]
+    partial class NovoContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -31,7 +31,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("DataCadastro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 471, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 173, DateTimeKind.Local));
 
                     b.Property<bool>("Deletado")
                         .ValueGeneratedOnAdd()
@@ -49,7 +49,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 471, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 173, DateTimeKind.Local));
 
                     b.HasKey("Id");
 
@@ -58,7 +58,7 @@ namespace Wodin.Migrations
                     b.ToTable("Departamento");
 
                     b.HasData(
-                        new { Id = 1, Ativo = true, DataCadastro = new DateTime(2019, 4, 6, 12, 50, 36, 471, DateTimeKind.Local), Deletado = false, EmpresaId = 1, Nome = "RECURSOS HUMANOS" }
+                        new { Id = 1, Ativo = true, DataCadastro = new DateTime(2019, 4, 6, 14, 29, 52, 173, DateTimeKind.Local), Deletado = false, EmpresaId = 1, Nome = "RECURSOS HUMANOS" }
                     );
                 });
 
@@ -92,7 +92,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("DataCadastro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 467, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 169, DateTimeKind.Local));
 
                     b.Property<string>("Database")
                         .HasColumnType("varchar(64)");
@@ -134,7 +134,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 468, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 171, DateTimeKind.Local));
 
                     b.Property<string>("Unidade")
                         .HasColumnType("varchar(16)");
@@ -147,7 +147,7 @@ namespace Wodin.Migrations
                     b.ToTable("Empresa");
 
                     b.HasData(
-                        new { Id = 1, Ativo = true, Bairro = "TABULEIRO DO MARTINS", CEP = "57081000", CNPJ = "21373332000191", DataAbertura = new DateTime(2014, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), DataCadastro = new DateTime(2019, 4, 6, 12, 50, 36, 469, DateTimeKind.Local), Database = "3R_Ambiental", Deletado = false, Email = "alexlamanda@gmail.com", Fantasia = "3R AMBIENTAL", IE = "", RazaoSocial = "3R INDÚSTRIA E COMÉRCIO DE PLÁSTICO LTDA - ME", Uf = "AL", Website = "" }
+                        new { Id = 1, Ativo = true, Bairro = "TABULEIRO DO MARTINS", CEP = "57081000", CNPJ = "21373332000191", DataAbertura = new DateTime(2014, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), DataCadastro = new DateTime(2019, 4, 6, 14, 29, 52, 171, DateTimeKind.Local), Database = "3R_Ambiental", Deletado = false, Email = "alexlamanda@gmail.com", Fantasia = "3R AMBIENTAL", IE = "", RazaoSocial = "3R INDÚSTRIA E COMÉRCIO DE PLÁSTICO LTDA - ME", Uf = "AL", Website = "" }
                     );
                 });
 
@@ -177,7 +177,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("DataCadastro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 472, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 174, DateTimeKind.Local));
 
                     b.Property<bool>("Deletado")
                         .ValueGeneratedOnAdd()
@@ -201,7 +201,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 472, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 174, DateTimeKind.Local));
 
                     b.HasKey("Id");
 
@@ -231,11 +231,7 @@ namespace Wodin.Migrations
 
                     b.Property<DateTime?>("UltimaAtualizacao");
 
-                    b.Property<int?>("UsuarioPermissaoAcessoId");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UsuarioPermissaoAcessoId");
 
                     b.ToTable("Menu");
                 });
@@ -252,7 +248,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("DataCadastro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 475, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 177, DateTimeKind.Local));
 
                     b.Property<bool>("Deletado")
                         .ValueGeneratedOnAdd()
@@ -270,18 +266,13 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 475, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 177, DateTimeKind.Local));
 
                     b.HasKey("Id");
 
                     b.HasIndex("EmpresaId");
 
                     b.ToTable("Pessoa");
-
-                    b.HasData(
-                        new { Id = 1, Ativo = true, DataCadastro = new DateTime(2019, 4, 6, 12, 50, 36, 475, DateTimeKind.Local), Deletado = false, Descricao = "JUCERAN", EmpresaId = 1, UltimaAtualizacao = new DateTime(2019, 4, 6, 12, 50, 36, 475, DateTimeKind.Local) },
-                        new { Id = 2, Ativo = true, DataCadastro = new DateTime(2019, 4, 6, 12, 50, 36, 475, DateTimeKind.Local), Deletado = false, Descricao = "JULIO", EmpresaId = 1, UltimaAtualizacao = new DateTime(2019, 4, 6, 12, 50, 36, 475, DateTimeKind.Local) }
-                    );
                 });
 
             modelBuilder.Entity("Wodin.Models.PessoaCliente", b =>
@@ -300,7 +291,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("DataCadastro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 477, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 178, DateTimeKind.Local));
 
                     b.Property<bool>("Deletado")
                         .ValueGeneratedOnAdd()
@@ -320,7 +311,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 477, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 179, DateTimeKind.Local));
 
                     b.HasKey("Id");
 
@@ -332,11 +323,6 @@ namespace Wodin.Migrations
                     b.HasIndex("PrazoRecebimentoId");
 
                     b.ToTable("PessoaCliente");
-
-                    b.HasData(
-                        new { Id = 1, Ativo = true, Cliente = true, DataCadastro = new DateTime(2019, 4, 6, 12, 50, 36, 478, DateTimeKind.Local), Deletado = false, FormaRecebimentoId = 0, LimiteCredito = 500m, PessoaId = 1, PrazoRecebimentoId = 0, UltimaAtualizacao = new DateTime(2019, 4, 6, 12, 50, 36, 478, DateTimeKind.Local) },
-                        new { Id = 2, Ativo = true, Cliente = true, DataCadastro = new DateTime(2019, 4, 6, 12, 50, 36, 478, DateTimeKind.Local), Deletado = false, FormaRecebimentoId = 0, LimiteCredito = 500m, PessoaId = 2, PrazoRecebimentoId = 0, UltimaAtualizacao = new DateTime(2019, 4, 6, 12, 50, 36, 478, DateTimeKind.Local) }
-                    );
                 });
 
             modelBuilder.Entity("Wodin.Models.PessoaEmail", b =>
@@ -351,7 +337,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("DataCadastro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 482, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 182, DateTimeKind.Local));
 
                     b.Property<bool>("Deletado")
                         .ValueGeneratedOnAdd()
@@ -375,7 +361,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 482, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 182, DateTimeKind.Local));
 
                     b.HasKey("Id");
 
@@ -456,7 +442,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("DataCadastro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 480, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 181, DateTimeKind.Local));
 
                     b.Property<DateTime?>("DataNascimento")
                         .HasColumnType("Date");
@@ -491,7 +477,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 480, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 181, DateTimeKind.Local));
 
                     b.HasKey("Id");
 
@@ -499,11 +485,6 @@ namespace Wodin.Migrations
                         .IsUnique();
 
                     b.ToTable("PessoaFisica");
-
-                    b.HasData(
-                        new { Id = 1, Ativo = true, CPF = "75789515487", DataCadastro = new DateTime(2019, 4, 6, 12, 50, 36, 480, DateTimeKind.Local), DataNascimento = new DateTime(1972, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), Deletado = false, Fisica = false, PessoaId = 1, RG = "1015915 SSP/AL", Sexo = 1, UltimaAtualizacao = new DateTime(2019, 4, 6, 12, 50, 36, 480, DateTimeKind.Local) },
-                        new { Id = 2, Ativo = true, CPF = "", DataCadastro = new DateTime(2019, 4, 6, 12, 50, 36, 480, DateTimeKind.Local), Deletado = false, Fisica = false, PessoaId = 2, RG = "", Sexo = 1, UltimaAtualizacao = new DateTime(2019, 4, 6, 12, 50, 36, 480, DateTimeKind.Local) }
-                    );
                 });
 
             modelBuilder.Entity("Wodin.Models.PessoaFornecedor", b =>
@@ -518,7 +499,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("DataCadastro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 483, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 184, DateTimeKind.Local));
 
                     b.Property<bool>("Deletado")
                         .ValueGeneratedOnAdd()
@@ -540,7 +521,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 483, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 184, DateTimeKind.Local));
 
                     b.HasKey("Id");
 
@@ -552,11 +533,6 @@ namespace Wodin.Migrations
                     b.HasIndex("PrazoPagamentoId");
 
                     b.ToTable("PessoaFornecedor");
-
-                    b.HasData(
-                        new { Id = 1, Ativo = true, DataCadastro = new DateTime(2019, 4, 6, 12, 50, 36, 484, DateTimeKind.Local), Deletado = false, FormaPagamentoId = 0, Fornecedor = true, PessoaId = 1, PrazoPagamentoId = 0, UltimaAtualizacao = new DateTime(2019, 4, 6, 12, 50, 36, 484, DateTimeKind.Local) },
-                        new { Id = 2, Ativo = true, DataCadastro = new DateTime(2019, 4, 6, 12, 50, 36, 484, DateTimeKind.Local), Deletado = false, FormaPagamentoId = 0, Fornecedor = true, PessoaId = 2, PrazoPagamentoId = 0, UltimaAtualizacao = new DateTime(2019, 4, 6, 12, 50, 36, 484, DateTimeKind.Local) }
-                    );
                 });
 
             modelBuilder.Entity("Wodin.Models.PessoaJuridica", b =>
@@ -579,7 +555,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("DataCadastro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 486, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 186, DateTimeKind.Local));
 
                     b.Property<DateTime?>("DataSituacao")
                         .HasColumnType("Date");
@@ -614,7 +590,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 486, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 186, DateTimeKind.Local));
 
                     b.HasKey("Id");
 
@@ -622,10 +598,6 @@ namespace Wodin.Migrations
                         .IsUnique();
 
                     b.ToTable("PessoaJuridica");
-
-                    b.HasData(
-                        new { Id = 1, Ativo = true, CNPJ = "70000401000127", DataAbertura = new DateTime(1994, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), DataCadastro = new DateTime(2019, 4, 6, 12, 50, 36, 486, DateTimeKind.Local), Deletado = false, Fantasia = "CETASISTEMAS", IE = "ISENTO", Juridica = true, PessoaId = 1, RazaoSocial = "JUCERAN CAVALCANTE ME" }
-                    );
                 });
 
             modelBuilder.Entity("Wodin.Models.PessoaTelefone", b =>
@@ -640,7 +612,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("DataCadastro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 487, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 188, DateTimeKind.Local));
 
                     b.Property<bool>("Deletado")
                         .ValueGeneratedOnAdd()
@@ -664,7 +636,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 488, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 188, DateTimeKind.Local));
 
                     b.HasKey("Id");
 
@@ -685,7 +657,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("DataCadastro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 489, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 189, DateTimeKind.Local));
 
                     b.Property<bool>("Deletado")
                         .ValueGeneratedOnAdd()
@@ -699,7 +671,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 489, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 189, DateTimeKind.Local));
 
                     b.Property<bool>("User")
                         .ValueGeneratedOnAdd()
@@ -708,21 +680,12 @@ namespace Wodin.Migrations
                     b.Property<string>("Usuario")
                         .HasColumnType("varchar(64)");
 
-                    b.Property<int?>("UsuarioPermissaoAcessoId");
-
                     b.HasKey("Id");
 
                     b.HasIndex("PessoaId")
                         .IsUnique();
 
-                    b.HasIndex("UsuarioPermissaoAcessoId");
-
                     b.ToTable("PessoaUsuario");
-
-                    b.HasData(
-                        new { Id = 1, Ativo = true, DataCadastro = new DateTime(2019, 4, 6, 12, 50, 36, 490, DateTimeKind.Local), Deletado = false, PessoaId = 1, UltimaAtualizacao = new DateTime(2019, 4, 6, 12, 50, 36, 490, DateTimeKind.Local), User = false, Usuario = "JUCERAN" },
-                        new { Id = 2, Ativo = true, DataCadastro = new DateTime(2019, 4, 6, 12, 50, 36, 490, DateTimeKind.Local), Deletado = false, PessoaId = 2, UltimaAtualizacao = new DateTime(2019, 4, 6, 12, 50, 36, 490, DateTimeKind.Local), User = false, Usuario = "JULIODEVELIS" }
-                    );
                 });
 
             modelBuilder.Entity("Wodin.Models.PessoaUsuarioSenha", b =>
@@ -737,7 +700,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("DataCadastro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 491, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 191, DateTimeKind.Local));
 
                     b.Property<bool>("Deletado")
                         .ValueGeneratedOnAdd()
@@ -755,7 +718,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 491, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 191, DateTimeKind.Local));
 
                     b.HasKey("Id");
 
@@ -763,11 +726,6 @@ namespace Wodin.Migrations
                         .IsUnique();
 
                     b.ToTable("PessoaUsuarioSenha");
-
-                    b.HasData(
-                        new { Id = 1, Ativo = true, DataCadastro = new DateTime(2019, 4, 6, 12, 50, 36, 491, DateTimeKind.Local), Deletado = false, PessoaUsuarioId = 1, Senha = "e10adc3949ba59abbe56e057f20f883e", UltimaAtualizacao = new DateTime(2019, 4, 6, 12, 50, 36, 491, DateTimeKind.Local) },
-                        new { Id = 2, Ativo = true, DataCadastro = new DateTime(2019, 4, 6, 12, 50, 36, 491, DateTimeKind.Local), Deletado = false, PessoaUsuarioId = 2, Senha = "e10adc3949ba59abbe56e057f20f883e", UltimaAtualizacao = new DateTime(2019, 4, 6, 12, 50, 36, 491, DateTimeKind.Local) }
-                    );
                 });
 
             modelBuilder.Entity("Wodin.Models.PrazoPagamento", b =>
@@ -784,7 +742,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("DataCadastro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 473, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 176, DateTimeKind.Local));
 
                     b.Property<bool>("Deletado")
                         .ValueGeneratedOnAdd()
@@ -814,7 +772,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 473, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 176, DateTimeKind.Local));
 
                     b.HasKey("Id");
 
@@ -849,13 +807,9 @@ namespace Wodin.Migrations
 
                     b.Property<DateTime?>("UltimaAtualizacao");
 
-                    b.Property<int?>("UsuarioPermissaoAcessoId");
-
                     b.HasKey("Id");
 
                     b.HasIndex("MenuId");
-
-                    b.HasIndex("UsuarioPermissaoAcessoId");
 
                     b.ToTable("SubMenu");
                 });
@@ -884,7 +838,7 @@ namespace Wodin.Migrations
                     b.Property<DateTime?>("DataCadastro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 493, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 192, DateTimeKind.Local));
 
                     b.Property<bool>("Deletado")
                         .ValueGeneratedOnAdd()
@@ -907,10 +861,16 @@ namespace Wodin.Migrations
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(false);
 
+                    b.Property<int>("MenuId");
+
+                    b.Property<int>("PessoaId");
+
+                    b.Property<int>("SubmenuId");
+
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 12, 50, 36, 493, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 14, 29, 52, 192, DateTimeKind.Local));
 
                     b.Property<bool>("Visualizar")
                         .ValueGeneratedOnAdd()
@@ -919,6 +879,12 @@ namespace Wodin.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("EmpresaId");
+
+                    b.HasIndex("MenuId");
+
+                    b.HasIndex("PessoaId");
+
+                    b.HasIndex("SubmenuId");
 
                     b.ToTable("UsuarioPermissaoAcesso");
                 });
@@ -937,13 +903,6 @@ namespace Wodin.Migrations
                         .WithMany()
                         .HasForeignKey("EmpresaId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Wodin.Models.Menu", b =>
-                {
-                    b.HasOne("Wodin.Models.UsuarioPermissaoAcesso")
-                        .WithMany("MenuUl")
-                        .HasForeignKey("UsuarioPermissaoAcessoId");
                 });
 
             modelBuilder.Entity("Wodin.Models.Pessoa", b =>
@@ -1036,10 +995,6 @@ namespace Wodin.Migrations
                         .WithOne("PessoaUsuario")
                         .HasForeignKey("Wodin.Models.PessoaUsuario", "PessoaId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Wodin.Models.UsuarioPermissaoAcesso")
-                        .WithMany("PessoaUsuario")
-                        .HasForeignKey("UsuarioPermissaoAcessoId");
                 });
 
             modelBuilder.Entity("Wodin.Models.PessoaUsuarioSenha", b =>
@@ -1064,10 +1019,6 @@ namespace Wodin.Migrations
                         .WithMany()
                         .HasForeignKey("MenuId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Wodin.Models.UsuarioPermissaoAcesso")
-                        .WithMany("MenuLi")
-                        .HasForeignKey("UsuarioPermissaoAcessoId");
                 });
 
             modelBuilder.Entity("Wodin.Models.UsuarioPermissaoAcesso", b =>
@@ -1075,6 +1026,21 @@ namespace Wodin.Migrations
                     b.HasOne("Wodin.Models.Empresa", "Empresa")
                         .WithMany()
                         .HasForeignKey("EmpresaId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Wodin.Models.Menu", "Menu")
+                        .WithMany()
+                        .HasForeignKey("MenuId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Wodin.Models.Pessoa", "Pessoa")
+                        .WithMany()
+                        .HasForeignKey("PessoaId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Wodin.Models.SubMenu", "SubMenu")
+                        .WithMany()
+                        .HasForeignKey("SubmenuId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

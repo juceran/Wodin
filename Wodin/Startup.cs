@@ -43,15 +43,15 @@ namespace Wodin
             //Context de acesso ao Banco de Dados
             services.AddDbContext<AdmContext>(options => options.UseNpgsql("Host=localhost;Database=Adm;Username=WODINPASS;Password=(*5523bASS%$12_."));
             services.AddDbContext<NovoContext>(options => options.UseNpgsql("Host=localhost;Database=3R_Ambiental;Username=WODINPASS;Password=(*5523bASS%$12_."));
-            services.AddDbContext<WodinContext>(options => options.UseNpgsql("Host=localhost;Database=Wodin;Username=WODINPASS;Password=(*5523bASS%$12_."));
+            services.AddDbContext<WodinContext>(options => options.UseNpgsql("Host=localhost;Database=3R_Ambiental;Username=WODINPASS;Password=(*5523bASS%$12_."));
 
             //injeçao de dependência para personalizar a criação do campos no banco de dados, FluentAPI - Contexts
             //pertence a todas as bases
             services.AddScoped<EmpresaConfiguration>();
 
             //Adm apenas
-            services.AddScoped<MenuUlConfiguration>();
-            services.AddScoped<MenuLiConfiguration>();
+            services.AddScoped<MenuConfiguration>();
+            services.AddScoped<SubMenuConfiguration>();
 
             //tabelas do sistema
             services.AddScoped<DepartamentoConfiguration>();

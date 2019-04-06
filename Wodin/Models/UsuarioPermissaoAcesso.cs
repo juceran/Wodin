@@ -40,8 +40,18 @@ namespace Wodin.Models
         [Display(Name = "Empresa")]
         public int EmpresaId { get; set; }
 
-        public ICollection<PessoaUsuario> PessoaUsuario { get; set; } = new List<PessoaUsuario>();
-        public ICollection<MenuUl> MenuUl { get; set; } = new List<MenuUl>();
-        public ICollection<MenuLi> MenuLi { get; set; } = new List<MenuLi>();
+        public Pessoa Pessoa { get; set; }
+        [Display(Name = "Usuário")]
+        public int PessoaId { get; set; }
+
+
+        //public ICollection<PessoaUsuario> PessoaUsuario { get; set; } = new List<PessoaUsuario>();
+        [Display(Name = "Menu")]
+        public Menu Menu { get; set; }
+        public int MenuId { get; set; }
+
+        [Display(Name = "SubMenu")]
+        public SubMenu SubMenu { get; set; }
+        public int SubmenuId { get; set; }
     }
 }

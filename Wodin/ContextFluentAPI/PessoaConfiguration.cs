@@ -32,7 +32,7 @@ namespace Wodin.ContextFluentAPI
             //modelBuilder
             //    .HasData(
             //    new Pessoa { Id = 1, Ativo = true, DataCadastro = DateTime.Now, UltimaAtualizacao = DateTime.Now, Deletado = false, Descricao = "JUCERAN", EmpresaId = 1},
-            //    new Pessoa { Id = 2, Ativo = true, DataCadastro = DateTime.Now, UltimaAtualizacao = DateTime.Now, Deletado = false, Descricao = "JULIO"  , EmpresaId = 1}
+            //    new Pessoa { Id = 2, Ativo = true, DataCadastro = DateTime.Now, UltimaAtualizacao = DateTime.Now, Deletado = false, Descricao = "JULIO", EmpresaId = 1 }
             //    );
         }
     }

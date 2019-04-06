@@ -36,6 +36,12 @@ namespace Wodin.ContextFluentAPI
                 .HasOne(p => p.Pessoa)
                 .WithOne(p => p.PessoaJuridica)
                 .HasForeignKey<PessoaJuridica>(p => p.PessoaId);
+
+            /* Inserir dados no banco */
+            //modelBuilder
+            //    .HasData(
+            //        new PessoaJuridica { Id = 1, PessoaId = 1, CNPJ = "70000401000127", IE = "ISENTO", RazaoSocial = "JUCERAN CAVALCANTE ME", Fantasia = "CETASISTEMAS", Ativo = true, Deletado = false, DataAbertura = DateTime.Parse("18/01/1994"), DataCadastro = DateTime.Now, Juridica = true }
+            //    );
         }
     }
 }

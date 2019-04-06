@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Wodin.Models.MenuUl>
+﻿@model IEnumerable<Wodin.Models.Menu>
 
 @{
     ViewData["Title"] = "Listagem";
@@ -7,16 +7,16 @@
 <h2>@ViewData["Title"]</h2>
 <h2>@ViewData["Message"]</h2>
 <p>
-    <a asp-action="Create" class="btn btn-default" title="Deseja cadastrar novo menu ul?"><span class="glyphicon glyphicon-plus-sign"></span> Novo</a>
+    <a asp-action="Create" class="btn btn-default" title="Deseja cadastrar novo menu?"><span class="glyphicon glyphicon-plus-sign"></span> Novo</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Menu)
+                @Html.DisplayNameFor(model => model.Menus)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Url)
+                @Html.DisplayNameFor(model => model.Controller)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Ativo)
@@ -29,10 +29,10 @@
         {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Menu)
+                @Html.DisplayFor(modelItem => item.Menus)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Url)
+                @Html.DisplayFor(modelItem => item.Controller)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Ativo)

@@ -40,7 +40,7 @@ namespace Wodin.ContextFluentAPI
             /* Inserir dados no banco */
             //modelBuilder
             //    .HasData(
-            //    new PessoaFornecedor { Id = 1, Ativo = true, DataCadastro = DateTime.Now, UltimaAtualizacao = DateTime.Now, Deletado = false, PessoaId = 1, Fornecedor = true},
+            //    new PessoaFornecedor { Id = 1, Ativo = true, DataCadastro = DateTime.Now, UltimaAtualizacao = DateTime.Now, Deletado = false, PessoaId = 1, Fornecedor = true },
             //    new PessoaFornecedor { Id = 2, Ativo = true, DataCadastro = DateTime.Now, UltimaAtualizacao = DateTime.Now, Deletado = false, PessoaId = 2, Fornecedor = true }
             //    );
         }

@@ -40,8 +40,8 @@ namespace Wodin.ContextFluentAPI
             /* Inserir dados no banco */
             //modelBuilder
             //    .HasData(
-            //    new PessoaFisica { Id = 1, Ativo = true, DataCadastro = DateTime.Now, UltimaAtualizacao = DateTime.Now, Deletado = false, PessoaId = 1, CPF = "75789515487",  RG = "1015915 SSP/AL", Sexo = Models.Enums.Sexo.Masculino, DataNascimento = DateTime.Parse("05/10/1972") },
-            //    new PessoaFisica { Id = 2, Ativo = true, DataCadastro = DateTime.Now, UltimaAtualizacao = DateTime.Now, Deletado = false, PessoaId = 2, CPF = "",             RG = "",               Sexo = Models.Enums.Sexo.Masculino }
+            //    new PessoaFisica { Id = 1, Ativo = true, DataCadastro = DateTime.Now, UltimaAtualizacao = DateTime.Now, Deletado = false, PessoaId = 1, CPF = "75789515487", RG = "1015915 SSP/AL", Sexo = Models.Enums.Sexo.Masculino, DataNascimento = DateTime.Parse("05/10/1972") },
+            //    new PessoaFisica { Id = 2, Ativo = true, DataCadastro = DateTime.Now, UltimaAtualizacao = DateTime.Now, Deletado = false, PessoaId = 2, CPF = "", RG = "", Sexo = Models.Enums.Sexo.Masculino }
             //    );
         }
     }

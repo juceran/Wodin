@@ -5,9 +5,9 @@ using System;
 
 namespace Wodin.ContextFluentAPI
 {
-    public class MenuUlConfiguration : IEntityTypeConfiguration<MenuUl>
+    public class SubMenuConfiguration : IEntityTypeConfiguration<SubMenu>
     {
-        public void Configure(EntityTypeBuilder<MenuUl> modelBuilder)
+        public void Configure(EntityTypeBuilder<SubMenu> modelBuilder)
         {
             //campos comuns
             modelBuilder
@@ -30,4 +30,3 @@ namespace Wodin.ContextFluentAPI
         }
     }
 }
-

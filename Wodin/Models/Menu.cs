@@ -4,14 +4,14 @@ using Wodin.Models.Base;
 
 namespace Wodin.Models
 {
-    public class MenuUl : CamposComuns
+    public class Menu : CamposComuns
     {
         [Column(TypeName = "varchar(128)")]
         [Display(Name = "Menu")]
-        public string Menu { get; set; }
+        public string Menus { get; set; }
 
         [Column(TypeName = "varchar(256)")]
-        [Display(Name = "URL")]
-        public string Url { get; set; }
+        [Display(Name = "Controller")]
+        public string Controller { get; set; }
     }
 }

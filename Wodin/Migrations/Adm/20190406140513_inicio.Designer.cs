@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Wodin.Context;
@@ -9,9 +10,10 @@ using Wodin.Context;
 namespace Wodin.Migrations.Adm
 {
     [DbContext(typeof(AdmContext))]
-    partial class AdmContextModelSnapshot : ModelSnapshot
+    [Migration("20190406140513_inicio")]
+    partial class inicio
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,7 +51,7 @@ namespace Wodin.Migrations.Adm
                     b.Property<DateTime?>("DataCadastro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 11, 40, 36, 650, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 11, 5, 13, 562, DateTimeKind.Local));
 
                     b.Property<string>("Database")
                         .HasColumnType("varchar(64)");
@@ -91,7 +93,7 @@ namespace Wodin.Migrations.Adm
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 11, 40, 36, 651, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 11, 5, 13, 564, DateTimeKind.Local));
 
                     b.Property<string>("Unidade")
                         .HasColumnType("varchar(16)");
@@ -104,8 +106,8 @@ namespace Wodin.Migrations.Adm
                     b.ToTable("Empresa");
 
                     b.HasData(
-                        new { Id = 1, Ativo = true, Bairro = "SERRARIA", CEP = "57046055", CNPJ = "70000401000127", DataAbertura = new DateTime(1994, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), DataCadastro = new DateTime(2019, 4, 6, 11, 40, 36, 652, DateTimeKind.Local), Database = "Adm", Deletado = false, Email = "juceran@gmail.com", Fantasia = "CETASISTEMAS", IE = "ISENTO", RazaoSocial = "JUCERAN CAVALCANTE ME", Uf = "AL", Website = "www.cetasistemas.com.br" },
-                        new { Id = 2, Ativo = true, Bairro = "TABULEIRO DO MARTINS", CEP = "57081000", CNPJ = "21373332000191", DataAbertura = new DateTime(2014, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), DataCadastro = new DateTime(2019, 4, 6, 11, 40, 36, 652, DateTimeKind.Local), Database = "3R_Ambiental", Deletado = false, Email = "alexlamanda@gmail.com", Fantasia = "3R AMBIENTAL", IE = "", RazaoSocial = "3R INDÚSTRIA E COMÉRCIO DE PLÁSTICO LTDA - ME", Uf = "AL", Website = "" }
+                        new { Id = 1, Ativo = true, Bairro = "SERRARIA", CEP = "57046055", CNPJ = "70000401000127", DataAbertura = new DateTime(1994, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), DataCadastro = new DateTime(2019, 4, 6, 11, 5, 13, 564, DateTimeKind.Local), Database = "Adm", Deletado = false, Email = "juceran@gmail.com", Fantasia = "CETASISTEMAS", IE = "ISENTO", RazaoSocial = "JUCERAN CAVALCANTE ME", Uf = "AL", Website = "www.cetasistemas.com.br" },
+                        new { Id = 2, Ativo = true, Bairro = "TABULEIRO DO MARTINS", CEP = "57081000", CNPJ = "21373332000191", DataAbertura = new DateTime(2014, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), DataCadastro = new DateTime(2019, 4, 6, 11, 5, 13, 564, DateTimeKind.Local), Database = "3R_Ambiental", Deletado = false, Email = "alexlamanda@gmail.com", Fantasia = "3R AMBIENTAL", IE = "", RazaoSocial = "3R INDÚSTRIA E COMÉRCIO DE PLÁSTICO LTDA - ME", Uf = "AL", Website = "" }
                     );
                 });
 
@@ -118,13 +120,10 @@ namespace Wodin.Migrations.Adm
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(true);
 
-                    b.Property<string>("Controller")
-                        .HasColumnType("varchar(256)");
-
                     b.Property<DateTime?>("DataCadastro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 11, 40, 36, 653, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 11, 5, 13, 566, DateTimeKind.Local));
 
                     b.Property<bool>("Deletado")
                         .ValueGeneratedOnAdd()
@@ -139,7 +138,10 @@ namespace Wodin.Migrations.Adm
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 11, 40, 36, 653, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 11, 5, 13, 566, DateTimeKind.Local));
+
+                    b.Property<string>("Url")
+                        .HasColumnType("varchar(256)");
 
                     b.HasKey("Id");
 
@@ -155,13 +157,10 @@ namespace Wodin.Migrations.Adm
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(true);
 
-                    b.Property<string>("Controller")
-                        .HasColumnType("varchar(256)");
-
                     b.Property<DateTime?>("DataCadastro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 11, 40, 36, 654, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 11, 5, 13, 567, DateTimeKind.Local));
 
                     b.Property<bool>("Deletado")
                         .ValueGeneratedOnAdd()
@@ -181,7 +180,10 @@ namespace Wodin.Migrations.Adm
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 4, 6, 11, 40, 36, 654, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 11, 5, 13, 567, DateTimeKind.Local));
+
+                    b.Property<string>("Url")
+                        .HasColumnType("varchar(256)");
 
                     b.HasKey("Id");
 

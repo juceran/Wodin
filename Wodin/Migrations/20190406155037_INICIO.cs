@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Wodin.Migrations
 {
-    public partial class inicio : Migration
+    public partial class INICIO : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,8 +15,8 @@ namespace Wodin.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Ativo = table.Column<bool>(nullable: false, defaultValue: true),
-                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 440, DateTimeKind.Local)),
-                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 443, DateTimeKind.Local)),
+                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 467, DateTimeKind.Local)),
+                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 468, DateTimeKind.Local)),
                     Deletado = table.Column<bool>(nullable: false, defaultValue: false),
                     DeletadoData = table.Column<DateTime>(type: "TIMESTAMP", nullable: true),
                     Database = table.Column<string>(type: "varchar(64)", nullable: true),
@@ -50,8 +50,8 @@ namespace Wodin.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Ativo = table.Column<bool>(nullable: false, defaultValue: true),
-                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 445, DateTimeKind.Local)),
-                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 445, DateTimeKind.Local)),
+                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 471, DateTimeKind.Local)),
+                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 471, DateTimeKind.Local)),
                     Deletado = table.Column<bool>(nullable: false, defaultValue: false),
                     DeletadoData = table.Column<DateTime>(type: "TIMESTAMP", nullable: true),
                     Nome = table.Column<string>(type: "varchar(64)", nullable: false),
@@ -75,8 +75,8 @@ namespace Wodin.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Ativo = table.Column<bool>(nullable: false, defaultValue: true),
-                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 447, DateTimeKind.Local)),
-                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 447, DateTimeKind.Local)),
+                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 472, DateTimeKind.Local)),
+                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 472, DateTimeKind.Local)),
                     Deletado = table.Column<bool>(nullable: false, defaultValue: false),
                     DeletadoData = table.Column<DateTime>(type: "TIMESTAMP", nullable: true),
                     Descricao = table.Column<string>(type: "varchar(64)", nullable: false),
@@ -107,8 +107,8 @@ namespace Wodin.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Ativo = table.Column<bool>(nullable: false, defaultValue: true),
-                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 449, DateTimeKind.Local)),
-                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 449, DateTimeKind.Local)),
+                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 475, DateTimeKind.Local)),
+                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 475, DateTimeKind.Local)),
                     Deletado = table.Column<bool>(nullable: false, defaultValue: false),
                     DeletadoData = table.Column<DateTime>(type: "TIMESTAMP", nullable: true),
                     Descricao = table.Column<string>(type: "varchar(64)", nullable: false),
@@ -132,8 +132,8 @@ namespace Wodin.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Ativo = table.Column<bool>(nullable: false, defaultValue: true),
-                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 448, DateTimeKind.Local)),
-                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 448, DateTimeKind.Local)),
+                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 473, DateTimeKind.Local)),
+                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 473, DateTimeKind.Local)),
                     Deletado = table.Column<bool>(nullable: false, defaultValue: false),
                     DeletadoData = table.Column<DateTime>(type: "TIMESTAMP", nullable: true),
                     Descricao = table.Column<string>(type: "varchar(64)", nullable: false),
@@ -164,8 +164,8 @@ namespace Wodin.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Ativo = table.Column<bool>(nullable: false, defaultValue: true),
-                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 465, DateTimeKind.Local)),
-                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 466, DateTimeKind.Local)),
+                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 493, DateTimeKind.Local)),
+                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 493, DateTimeKind.Local)),
                     Deletado = table.Column<bool>(nullable: false, defaultValue: false),
                     DeletadoData = table.Column<DateTime>(type: "TIMESTAMP", nullable: true),
                     Visualizar = table.Column<bool>(nullable: false, defaultValue: false),
@@ -195,8 +195,8 @@ namespace Wodin.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Ativo = table.Column<bool>(nullable: false, defaultValue: true),
-                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 455, DateTimeKind.Local)),
-                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 455, DateTimeKind.Local)),
+                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 482, DateTimeKind.Local)),
+                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 482, DateTimeKind.Local)),
                     Deletado = table.Column<bool>(nullable: false, defaultValue: false),
                     DeletadoData = table.Column<DateTime>(type: "TIMESTAMP", nullable: true),
                     Emails = table.Column<bool>(nullable: false, defaultValue: false),
@@ -257,8 +257,8 @@ namespace Wodin.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Ativo = table.Column<bool>(nullable: false, defaultValue: true),
-                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 453, DateTimeKind.Local)),
-                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 453, DateTimeKind.Local)),
+                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 480, DateTimeKind.Local)),
+                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 480, DateTimeKind.Local)),
                     Deletado = table.Column<bool>(nullable: false, defaultValue: false),
                     DeletadoData = table.Column<DateTime>(type: "TIMESTAMP", nullable: true),
                     Fisica = table.Column<bool>(nullable: false, defaultValue: false),
@@ -289,8 +289,8 @@ namespace Wodin.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Ativo = table.Column<bool>(nullable: false, defaultValue: true),
-                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 459, DateTimeKind.Local)),
-                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 459, DateTimeKind.Local)),
+                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 486, DateTimeKind.Local)),
+                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 486, DateTimeKind.Local)),
                     Deletado = table.Column<bool>(nullable: false, defaultValue: false),
                     DeletadoData = table.Column<DateTime>(type: "TIMESTAMP", nullable: true),
                     Juridica = table.Column<bool>(nullable: false, defaultValue: false),
@@ -323,8 +323,8 @@ namespace Wodin.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Ativo = table.Column<bool>(nullable: false, defaultValue: true),
-                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 460, DateTimeKind.Local)),
-                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 460, DateTimeKind.Local)),
+                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 487, DateTimeKind.Local)),
+                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 488, DateTimeKind.Local)),
                     Deletado = table.Column<bool>(nullable: false, defaultValue: false),
                     DeletadoData = table.Column<DateTime>(type: "TIMESTAMP", nullable: true),
                     Fone = table.Column<bool>(nullable: false, defaultValue: false),
@@ -350,8 +350,8 @@ namespace Wodin.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Ativo = table.Column<bool>(nullable: false, defaultValue: true),
-                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 451, DateTimeKind.Local)),
-                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 451, DateTimeKind.Local)),
+                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 477, DateTimeKind.Local)),
+                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 477, DateTimeKind.Local)),
                     Deletado = table.Column<bool>(nullable: false, defaultValue: false),
                     DeletadoData = table.Column<DateTime>(type: "TIMESTAMP", nullable: true),
                     Cliente = table.Column<bool>(nullable: false, defaultValue: false),
@@ -390,8 +390,8 @@ namespace Wodin.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Ativo = table.Column<bool>(nullable: false, defaultValue: true),
-                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 457, DateTimeKind.Local)),
-                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 457, DateTimeKind.Local)),
+                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 483, DateTimeKind.Local)),
+                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 483, DateTimeKind.Local)),
                     Deletado = table.Column<bool>(nullable: false, defaultValue: false),
                     DeletadoData = table.Column<DateTime>(type: "TIMESTAMP", nullable: true),
                     Fornecedor = table.Column<bool>(nullable: false, defaultValue: false),
@@ -423,7 +423,7 @@ namespace Wodin.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MenuUl",
+                name: "Menu",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -433,15 +433,15 @@ namespace Wodin.Migrations
                     UltimaAtualizacao = table.Column<DateTime>(nullable: true),
                     Deletado = table.Column<bool>(nullable: false),
                     DeletadoData = table.Column<DateTime>(nullable: true),
-                    Menu = table.Column<string>(type: "varchar(128)", nullable: true),
-                    Url = table.Column<string>(type: "varchar(256)", nullable: true),
+                    Menus = table.Column<string>(type: "varchar(128)", nullable: true),
+                    Controller = table.Column<string>(type: "varchar(256)", nullable: true),
                     UsuarioPermissaoAcessoId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MenuUl", x => x.Id);
+                    table.PrimaryKey("PK_Menu", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_MenuUl_UsuarioPermissaoAcesso_UsuarioPermissaoAcessoId",
+                        name: "FK_Menu_UsuarioPermissaoAcesso_UsuarioPermissaoAcessoId",
                         column: x => x.UsuarioPermissaoAcessoId,
                         principalTable: "UsuarioPermissaoAcesso",
                         principalColumn: "Id",
@@ -455,8 +455,8 @@ namespace Wodin.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Ativo = table.Column<bool>(nullable: false, defaultValue: true),
-                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 462, DateTimeKind.Local)),
-                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 462, DateTimeKind.Local)),
+                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 489, DateTimeKind.Local)),
+                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 489, DateTimeKind.Local)),
                     Deletado = table.Column<bool>(nullable: false, defaultValue: false),
                     DeletadoData = table.Column<DateTime>(type: "TIMESTAMP", nullable: true),
                     User = table.Column<bool>(nullable: false, defaultValue: false),
@@ -482,7 +482,7 @@ namespace Wodin.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MenuLi",
+                name: "SubMenu",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -492,23 +492,23 @@ namespace Wodin.Migrations
                     UltimaAtualizacao = table.Column<DateTime>(nullable: true),
                     Deletado = table.Column<bool>(nullable: false),
                     DeletadoData = table.Column<DateTime>(nullable: true),
-                    SubMenu = table.Column<string>(type: "varchar(128)", nullable: true),
-                    Url = table.Column<string>(type: "varchar(256)", nullable: true),
+                    SubMenus = table.Column<string>(type: "varchar(128)", nullable: true),
+                    Controller = table.Column<string>(type: "varchar(256)", nullable: true),
                     Titulo = table.Column<string>(type: "varchar(128)", nullable: true),
-                    MenuUlId = table.Column<int>(nullable: false),
+                    MenuId = table.Column<int>(nullable: false),
                     UsuarioPermissaoAcessoId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MenuLi", x => x.Id);
+                    table.PrimaryKey("PK_SubMenu", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_MenuLi_MenuUl_MenuUlId",
-                        column: x => x.MenuUlId,
-                        principalTable: "MenuUl",
+                        name: "FK_SubMenu_Menu_MenuId",
+                        column: x => x.MenuId,
+                        principalTable: "Menu",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_MenuLi_UsuarioPermissaoAcesso_UsuarioPermissaoAcessoId",
+                        name: "FK_SubMenu_UsuarioPermissaoAcesso_UsuarioPermissaoAcessoId",
                         column: x => x.UsuarioPermissaoAcessoId,
                         principalTable: "UsuarioPermissaoAcesso",
                         principalColumn: "Id",
@@ -522,8 +522,8 @@ namespace Wodin.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     Ativo = table.Column<bool>(nullable: false, defaultValue: true),
-                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 464, DateTimeKind.Local)),
-                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 3, 31, 14, 8, 13, 464, DateTimeKind.Local)),
+                    DataCadastro = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 491, DateTimeKind.Local)),
+                    UltimaAtualizacao = table.Column<DateTime>(type: "TIMESTAMP", nullable: true, defaultValue: new DateTime(2019, 4, 6, 12, 50, 36, 491, DateTimeKind.Local)),
                     Deletado = table.Column<bool>(nullable: false, defaultValue: false),
                     DeletadoData = table.Column<DateTime>(type: "TIMESTAMP", nullable: true),
                     Senha = table.Column<string>(type: "varchar(128)", maxLength: 10, nullable: true),
@@ -543,12 +543,73 @@ namespace Wodin.Migrations
             migrationBuilder.InsertData(
                 table: "Empresa",
                 columns: new[] { "Id", "Ativo", "Bairro", "CEP", "CNPJ", "Cidade", "Complemento", "DataAbertura", "DataCadastro", "Database", "Deletado", "DeletadoData", "Email", "Fantasia", "GIA", "IBGE", "IE", "Logradouro", "Numero", "RazaoSocial", "Uf", "UltimaAtualizacao", "Unidade", "Website" },
-                values: new object[] { 1, true, "TABULEIRO DO MARTINS", "57081000", "21373332000191", null, null, new DateTime(2014, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 3, 31, 14, 8, 13, 444, DateTimeKind.Local), "3R_Ambiental", false, null, "alexlamanda@gmail.com", "3R AMBIENTAL", null, null, "", null, null, "3R INDÚSTRIA E COMÉRCIO DE PLÁSTICO LTDA - ME", "AL", null, null, "" });
+                values: new object[] { 1, true, "TABULEIRO DO MARTINS", "57081000", "21373332000191", null, null, new DateTime(2014, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 4, 6, 12, 50, 36, 469, DateTimeKind.Local), "3R_Ambiental", false, null, "alexlamanda@gmail.com", "3R AMBIENTAL", null, null, "", null, null, "3R INDÚSTRIA E COMÉRCIO DE PLÁSTICO LTDA - ME", "AL", null, null, "" });
 
             migrationBuilder.InsertData(
                 table: "Departamento",
                 columns: new[] { "Id", "Ativo", "DataCadastro", "Deletado", "DeletadoData", "EmpresaId", "Nome", "UltimaAtualizacao" },
-                values: new object[] { 1, true, new DateTime(2019, 3, 31, 14, 8, 13, 445, DateTimeKind.Local), false, null, 1, "RECURSOS HUMANOS", null });
+                values: new object[] { 1, true, new DateTime(2019, 4, 6, 12, 50, 36, 471, DateTimeKind.Local), false, null, 1, "RECURSOS HUMANOS", null });
+
+            migrationBuilder.InsertData(
+                table: "Pessoa",
+                columns: new[] { "Id", "Ativo", "DataCadastro", "Deletado", "DeletadoData", "Descricao", "EmpresaId", "UltimaAtualizacao" },
+                values: new object[] { 1, true, new DateTime(2019, 4, 6, 12, 50, 36, 475, DateTimeKind.Local), false, null, "JUCERAN", 1, new DateTime(2019, 4, 6, 12, 50, 36, 475, DateTimeKind.Local) });
+
+            migrationBuilder.InsertData(
+                table: "Pessoa",
+                columns: new[] { "Id", "Ativo", "DataCadastro", "Deletado", "DeletadoData", "Descricao", "EmpresaId", "UltimaAtualizacao" },
+                values: new object[] { 2, true, new DateTime(2019, 4, 6, 12, 50, 36, 475, DateTimeKind.Local), false, null, "JULIO", 1, new DateTime(2019, 4, 6, 12, 50, 36, 475, DateTimeKind.Local) });
+
+            migrationBuilder.InsertData(
+                table: "PessoaCliente",
+                columns: new[] { "Id", "Ativo", "Cliente", "DataCadastro", "Deletado", "DeletadoData", "FormaRecebimentoId", "LimiteCredito", "PessoaId", "PrazoRecebimentoId", "UltimaAtualizacao" },
+                values: new object[,]
+                {
+                    { 1, true, true, new DateTime(2019, 4, 6, 12, 50, 36, 478, DateTimeKind.Local), false, null, 0, 500m, 1, 0, new DateTime(2019, 4, 6, 12, 50, 36, 478, DateTimeKind.Local) },
+                    { 2, true, true, new DateTime(2019, 4, 6, 12, 50, 36, 478, DateTimeKind.Local), false, null, 0, 500m, 2, 0, new DateTime(2019, 4, 6, 12, 50, 36, 478, DateTimeKind.Local) }
+                });
+
+            migrationBuilder.InsertData(
+                table: "PessoaFisica",
+                columns: new[] { "Id", "Ativo", "CPF", "DataCadastro", "DataNascimento", "Deletado", "DeletadoData", "Fisica", "Mae", "Nome", "Pai", "PessoaId", "RG", "Sexo", "UltimaAtualizacao" },
+                values: new object[,]
+                {
+                    { 1, true, "75789515487", new DateTime(2019, 4, 6, 12, 50, 36, 480, DateTimeKind.Local), new DateTime(1972, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), false, null, false, null, null, null, 1, "1015915 SSP/AL", 1, new DateTime(2019, 4, 6, 12, 50, 36, 480, DateTimeKind.Local) },
+                    { 2, true, "", new DateTime(2019, 4, 6, 12, 50, 36, 480, DateTimeKind.Local), null, false, null, false, null, null, null, 2, "", 1, new DateTime(2019, 4, 6, 12, 50, 36, 480, DateTimeKind.Local) }
+                });
+
+            migrationBuilder.InsertData(
+                table: "PessoaFornecedor",
+                columns: new[] { "Id", "Ativo", "DataCadastro", "Deletado", "DeletadoData", "FormaPagamentoId", "Fornecedor", "PessoaId", "PrazoPagamentoId", "UltimaAtualizacao" },
+                values: new object[,]
+                {
+                    { 1, true, new DateTime(2019, 4, 6, 12, 50, 36, 484, DateTimeKind.Local), false, null, 0, true, 1, 0, new DateTime(2019, 4, 6, 12, 50, 36, 484, DateTimeKind.Local) },
+                    { 2, true, new DateTime(2019, 4, 6, 12, 50, 36, 484, DateTimeKind.Local), false, null, 0, true, 2, 0, new DateTime(2019, 4, 6, 12, 50, 36, 484, DateTimeKind.Local) }
+                });
+
+            migrationBuilder.InsertData(
+                table: "PessoaJuridica",
+                columns: new[] { "Id", "Ativo", "CNPJ", "Complemento", "DataAbertura", "DataCadastro", "DataSituacao", "Deletado", "DeletadoData", "Fantasia", "IE", "Juridica", "MotivoSituacao", "PessoaId", "RazaoSocial", "Situacao", "UltimaAtualizacao" },
+                values: new object[] { 1, true, "70000401000127", null, new DateTime(1994, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 4, 6, 12, 50, 36, 486, DateTimeKind.Local), null, false, null, "CETASISTEMAS", "ISENTO", true, null, 1, "JUCERAN CAVALCANTE ME", null, null });
+
+            migrationBuilder.InsertData(
+                table: "PessoaUsuario",
+                columns: new[] { "Id", "Ativo", "DataCadastro", "Deletado", "DeletadoData", "PessoaId", "UltimaAtualizacao", "User", "Usuario", "UsuarioPermissaoAcessoId" },
+                values: new object[,]
+                {
+                    { 1, true, new DateTime(2019, 4, 6, 12, 50, 36, 490, DateTimeKind.Local), false, null, 1, new DateTime(2019, 4, 6, 12, 50, 36, 490, DateTimeKind.Local), false, "JUCERAN", null },
+                    { 2, true, new DateTime(2019, 4, 6, 12, 50, 36, 490, DateTimeKind.Local), false, null, 2, new DateTime(2019, 4, 6, 12, 50, 36, 490, DateTimeKind.Local), false, "JULIODEVELIS", null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "PessoaUsuarioSenha",
+                columns: new[] { "Id", "Ativo", "DataCadastro", "Deletado", "DeletadoData", "PessoaUsuarioId", "Senha", "UltimaAtualizacao" },
+                values: new object[] { 1, true, new DateTime(2019, 4, 6, 12, 50, 36, 491, DateTimeKind.Local), false, null, 1, "e10adc3949ba59abbe56e057f20f883e", new DateTime(2019, 4, 6, 12, 50, 36, 491, DateTimeKind.Local) });
+
+            migrationBuilder.InsertData(
+                table: "PessoaUsuarioSenha",
+                columns: new[] { "Id", "Ativo", "DataCadastro", "Deletado", "DeletadoData", "PessoaUsuarioId", "Senha", "UltimaAtualizacao" },
+                values: new object[] { 2, true, new DateTime(2019, 4, 6, 12, 50, 36, 491, DateTimeKind.Local), false, null, 2, "e10adc3949ba59abbe56e057f20f883e", new DateTime(2019, 4, 6, 12, 50, 36, 491, DateTimeKind.Local) });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Departamento_EmpresaId",
@@ -561,18 +622,8 @@ namespace Wodin.Migrations
                 column: "EmpresaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MenuLi_MenuUlId",
-                table: "MenuLi",
-                column: "MenuUlId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_MenuLi_UsuarioPermissaoAcessoId",
-                table: "MenuLi",
-                column: "UsuarioPermissaoAcessoId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_MenuUl_UsuarioPermissaoAcessoId",
-                table: "MenuUl",
+                name: "IX_Menu_UsuarioPermissaoAcessoId",
+                table: "Menu",
                 column: "UsuarioPermissaoAcessoId");
 
             migrationBuilder.CreateIndex(
@@ -662,6 +713,16 @@ namespace Wodin.Migrations
                 column: "EmpresaId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_SubMenu_MenuId",
+                table: "SubMenu",
+                column: "MenuId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SubMenu_UsuarioPermissaoAcessoId",
+                table: "SubMenu",
+                column: "UsuarioPermissaoAcessoId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UsuarioPermissaoAcesso_EmpresaId",
                 table: "UsuarioPermissaoAcesso",
                 column: "EmpresaId");
@@ -671,9 +732,6 @@ namespace Wodin.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Departamento");
-
-            migrationBuilder.DropTable(
-                name: "MenuLi");
 
             migrationBuilder.DropTable(
                 name: "PessoaCliente");
@@ -700,7 +758,7 @@ namespace Wodin.Migrations
                 name: "PessoaUsuarioSenha");
 
             migrationBuilder.DropTable(
-                name: "MenuUl");
+                name: "SubMenu");
 
             migrationBuilder.DropTable(
                 name: "FormaPagamento");
@@ -710,6 +768,9 @@ namespace Wodin.Migrations
 
             migrationBuilder.DropTable(
                 name: "PessoaUsuario");
+
+            migrationBuilder.DropTable(
+                name: "Menu");
 
             migrationBuilder.DropTable(
                 name: "Pessoa");

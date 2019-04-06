@@ -38,9 +38,9 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" title="Permissão restrita a administração do sistema">Sistema<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li class=""><a asp-area="" asp-controller="AdmEmpresas" asp-action="Index" title="Base de Dados Comum">Empresas</a></li>
-                            <li class=""><a asp-area="" asp-controller="MenuUls" asp-action="Index">Menu</a></li>
-                            <li class=""><a asp-area="" asp-controller="MenuLis" asp-action="Index">SubMenu</a></li>
+                            <li class=""><a asp-area="" asp-controller="AdmEmpresas" asp-action="Index" title="Base de Dados Administrativa">Empresas</a></li>
+                            <li class=""><a asp-area="" asp-controller="Menus" asp-action="Index">Menu</a></li>
+                            <li class=""><a asp-area="" asp-controller="SubMenus" asp-action="Index">SubMenu</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -56,6 +56,12 @@
                         <ul class="dropdown-menu">
                             <li class=""><a asp-area="" asp-controller="FormaPagamentos" asp-action="Index">Forma de Pagamentos</a></li>
                             <li class=""><a asp-area="" asp-controller="PrazoPagamentos" asp-action="Index">Prazo de Pagamentos</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Parametros<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class=""><a asp-area="" asp-controller="UsuarioPermissaoAcessos" asp-action="Index">Permissões</a></li>
                         </ul>
                     </li>
                 </ul>

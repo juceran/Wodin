@@ -11,18 +11,16 @@ namespace Wodin.Context
         {
         }
 
-        public DbSet<Empresa> Empresa { get; set; }
-        
+        public DbSet<Empresa> Empresa { get; set; }        
         //menus para acesso ao site
-        public DbSet<MenuUl> MenuUl { get; set; }
-        public DbSet<MenuLi> MenuLi { get; set; }
+        public DbSet<Menu> Menu { get; set; }
+        public DbSet<SubMenu> SubMenu { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new EmpresaConfiguration());
-
-            modelBuilder.ApplyConfiguration(new MenuUlConfiguration());
-            modelBuilder.ApplyConfiguration(new MenuLiConfiguration());
+            modelBuilder.ApplyConfiguration(new MenuConfiguration());
+            modelBuilder.ApplyConfiguration(new SubMenuConfiguration());
         }
     }
 }

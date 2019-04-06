@@ -10,8 +10,8 @@ using Wodin.Context;
 namespace Wodin.Migrations.Adm
 {
     [DbContext(typeof(AdmContext))]
-    [Migration("20190331171028_inicio")]
-    partial class inicio
+    [Migration("20190406144036_alterado o nome do campo url para controller")]
+    partial class alteradoonomedocampourlparacontroller
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,7 +51,7 @@ namespace Wodin.Migrations.Adm
                     b.Property<DateTime?>("DataCadastro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 3, 31, 14, 10, 28, 561, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 11, 40, 36, 650, DateTimeKind.Local));
 
                     b.Property<string>("Database")
                         .HasColumnType("varchar(64)");
@@ -93,7 +93,7 @@ namespace Wodin.Migrations.Adm
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 3, 31, 14, 10, 28, 564, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 11, 40, 36, 651, DateTimeKind.Local));
 
                     b.Property<string>("Unidade")
                         .HasColumnType("varchar(16)");
@@ -106,12 +106,12 @@ namespace Wodin.Migrations.Adm
                     b.ToTable("Empresa");
 
                     b.HasData(
-                        new { Id = 1, Ativo = true, Bairro = "SERRARIA", CEP = "57046055", CNPJ = "70000401000127", DataAbertura = new DateTime(1994, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), DataCadastro = new DateTime(2019, 3, 31, 14, 10, 28, 565, DateTimeKind.Local), Database = "Adm", Deletado = false, Email = "juceran@gmail.com", Fantasia = "CETASISTEMAS", IE = "ISENTO", RazaoSocial = "JUCERAN CAVALCANTE ME", Uf = "AL", Website = "www.cetasistemas.com.br" },
-                        new { Id = 2, Ativo = true, Bairro = "TABULEIRO DO MARTINS", CEP = "57081000", CNPJ = "21373332000191", DataAbertura = new DateTime(2014, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), DataCadastro = new DateTime(2019, 3, 31, 14, 10, 28, 565, DateTimeKind.Local), Database = "3R_Ambiental", Deletado = false, Email = "alexlamanda@gmail.com", Fantasia = "3R AMBIENTAL", IE = "", RazaoSocial = "3R INDÚSTRIA E COMÉRCIO DE PLÁSTICO LTDA - ME", Uf = "AL", Website = "" }
+                        new { Id = 1, Ativo = true, Bairro = "SERRARIA", CEP = "57046055", CNPJ = "70000401000127", DataAbertura = new DateTime(1994, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), DataCadastro = new DateTime(2019, 4, 6, 11, 40, 36, 652, DateTimeKind.Local), Database = "Adm", Deletado = false, Email = "juceran@gmail.com", Fantasia = "CETASISTEMAS", IE = "ISENTO", RazaoSocial = "JUCERAN CAVALCANTE ME", Uf = "AL", Website = "www.cetasistemas.com.br" },
+                        new { Id = 2, Ativo = true, Bairro = "TABULEIRO DO MARTINS", CEP = "57081000", CNPJ = "21373332000191", DataAbertura = new DateTime(2014, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), DataCadastro = new DateTime(2019, 4, 6, 11, 40, 36, 652, DateTimeKind.Local), Database = "3R_Ambiental", Deletado = false, Email = "alexlamanda@gmail.com", Fantasia = "3R AMBIENTAL", IE = "", RazaoSocial = "3R INDÚSTRIA E COMÉRCIO DE PLÁSTICO LTDA - ME", Uf = "AL", Website = "" }
                     );
                 });
 
-            modelBuilder.Entity("Wodin.Models.MenuLi", b =>
+            modelBuilder.Entity("Wodin.Models.Menu", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -120,10 +120,13 @@ namespace Wodin.Migrations.Adm
                         .ValueGeneratedOnAdd()
                         .HasDefaultValue(true);
 
+                    b.Property<string>("Controller")
+                        .HasColumnType("varchar(256)");
+
                     b.Property<DateTime?>("DataCadastro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 3, 31, 14, 10, 28, 567, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 11, 40, 36, 653, DateTimeKind.Local));
 
                     b.Property<bool>("Deletado")
                         .ValueGeneratedOnAdd()
@@ -132,9 +135,46 @@ namespace Wodin.Migrations.Adm
                     b.Property<DateTime?>("DeletadoData")
                         .HasColumnType("TIMESTAMP");
 
-                    b.Property<int>("MenuUlId");
+                    b.Property<string>("Menus")
+                        .HasColumnType("varchar(128)");
 
-                    b.Property<string>("SubMenu")
+                    b.Property<DateTime?>("UltimaAtualizacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TIMESTAMP")
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 11, 40, 36, 653, DateTimeKind.Local));
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Menu");
+                });
+
+            modelBuilder.Entity("Wodin.Models.SubMenu", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Ativo")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("Controller")
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<DateTime?>("DataCadastro")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TIMESTAMP")
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 11, 40, 36, 654, DateTimeKind.Local));
+
+                    b.Property<bool>("Deletado")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
+
+                    b.Property<DateTime?>("DeletadoData")
+                        .HasColumnType("TIMESTAMP");
+
+                    b.Property<int>("MenuId");
+
+                    b.Property<string>("SubMenus")
                         .HasColumnType("varchar(128)");
 
                     b.Property<string>("Titulo")
@@ -143,60 +183,20 @@ namespace Wodin.Migrations.Adm
                     b.Property<DateTime?>("UltimaAtualizacao")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 3, 31, 14, 10, 28, 567, DateTimeKind.Local));
-
-                    b.Property<string>("Url")
-                        .HasColumnType("varchar(256)");
+                        .HasDefaultValue(new DateTime(2019, 4, 6, 11, 40, 36, 654, DateTimeKind.Local));
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MenuUlId");
+                    b.HasIndex("MenuId");
 
-                    b.ToTable("MenuLi");
+                    b.ToTable("SubMenu");
                 });
 
-            modelBuilder.Entity("Wodin.Models.MenuUl", b =>
+            modelBuilder.Entity("Wodin.Models.SubMenu", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<bool>("Ativo")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(true);
-
-                    b.Property<DateTime?>("DataCadastro")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 3, 31, 14, 10, 28, 566, DateTimeKind.Local));
-
-                    b.Property<bool>("Deletado")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
-
-                    b.Property<DateTime?>("DeletadoData")
-                        .HasColumnType("TIMESTAMP");
-
-                    b.Property<string>("Menu")
-                        .HasColumnType("varchar(128)");
-
-                    b.Property<DateTime?>("UltimaAtualizacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TIMESTAMP")
-                        .HasDefaultValue(new DateTime(2019, 3, 31, 14, 10, 28, 566, DateTimeKind.Local));
-
-                    b.Property<string>("Url")
-                        .HasColumnType("varchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("MenuUl");
-                });
-
-            modelBuilder.Entity("Wodin.Models.MenuLi", b =>
-                {
-                    b.HasOne("Wodin.Models.MenuUl", "MenuUl")
+                    b.HasOne("Wodin.Models.Menu", "Menu")
                         .WithMany()
-                        .HasForeignKey("MenuUlId")
+                        .HasForeignKey("MenuId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

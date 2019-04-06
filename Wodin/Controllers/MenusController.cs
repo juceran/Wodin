@@ -6,31 +6,29 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Wodin.Context;
-using Wodin.Services;
 using Wodin.Models;
+using Wodin.Services;
 
 namespace Wodin.Controllers
 {
-    public class MenuUlsController : Controller
+    public class MenusController : Controller
     {
         private readonly AdmContext _context;
         private readonly MenuService _menuService;
 
-        public MenuUlsController(AdmContext context, MenuService menuService)
+        public MenusController(AdmContext context, MenuService menuService)
         {
             _context = context;
             _menuService = menuService;
         }
 
-
-
-        // GET: MenuUls
+        // GET: Menus
         public async Task<IActionResult> Index()
         {
-            return View(await _context.MenuUl.OrderBy(x => x.Menu).ToListAsync());
+            return View(await _context.Menu.OrderBy(x => x.Menus).ToListAsync());
         }
 
-        // GET: MenuUls/Details/5
+        // GET: Menus/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -38,47 +36,47 @@ namespace Wodin.Controllers
                 return NotFound();
             }
 
-            var menuUl = await _context.MenuUl
+            var menu = await _context.Menu
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (menuUl == null)
+            if (menu == null)
             {
                 return NotFound();
             }
 
-            return View(menuUl);
+            return View(menu);
         }
 
-        // GET: MenuUls/Create
+        // GET: Menus/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: MenuUls/Create
+        // POST: Menus/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Menu,Url,Id,Ativo,DataCadastro,UltimaAtualizacao,Deletado,DeletadoData")] MenuUl menuUl)
+        public async Task<IActionResult> Create([Bind("Menus,Url,Id,Ativo,DataCadastro,UltimaAtualizacao,Deletado,DeletadoData")] Menu menu)
         {
             if (ModelState.IsValid)
             {
-                //Verifica duplicidade
-                var menuExiste = _menuService.MenuExiste(menuUl);
+                //verifica duplicidade
+                var menuExiste = _menuService.MenuExiste(menu);
                 if (menuExiste)
                 {
-                    ViewData["Message"] = "Menu em duplicidade!";                   
-                    return View(menuUl);
+                    ViewData["Message"] = "Menu em duplicidade!";
+                    return View(menu);
                 }
 
-                _context.Add(menuUl);
+                _context.Add(menu);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(menuUl);
+            return View(menu);
         }
 
-        // GET: MenuUls/Edit/5
+        // GET: Menus/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -86,22 +84,22 @@ namespace Wodin.Controllers
                 return NotFound();
             }
 
-            var menuUl = await _context.MenuUl.FindAsync(id);
-            if (menuUl == null)
+            var menu = await _context.Menu.FindAsync(id);
+            if (menu == null)
             {
                 return NotFound();
             }
-            return View(menuUl);
+            return View(menu);
         }
 
-        // POST: MenuUls/Edit/5
+        // POST: Menus/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Menu,Url,Id,Ativo,DataCadastro,UltimaAtualizacao,Deletado,DeletadoData")] MenuUl menuUl)
+        public async Task<IActionResult> Edit(int id, [Bind("Menus,Url,Id,Ativo,DataCadastro,UltimaAtualizacao,Deletado,DeletadoData")] Menu menu)
         {
-            if (id != menuUl.Id)
+            if (id != menu.Id)
             {
                 return NotFound();
             }
@@ -110,12 +108,12 @@ namespace Wodin.Controllers
             {
                 try
                 {
-                    _context.Update(menuUl);
+                    _context.Update(menu);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MenuUlExists(menuUl.Id))
+                    if (!MenuExists(menu.Id))
                     {
                         return NotFound();
                     }
@@ -126,10 +124,10 @@ namespace Wodin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(menuUl);
+            return View(menu);
         }
 
-        // GET: MenuUls/Delete/5
+        // GET: Menus/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -137,34 +135,33 @@ namespace Wodin.Controllers
                 return NotFound();
             }
 
-            var menuUl = await _context.MenuUl
+            var menu = await _context.Menu
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (menuUl == null)
+            if (menu == null)
             {
                 return NotFound();
             }
 
-            return View(menuUl);
+            return View(menu);
         }
 
-        // POST: MenuUls/Delete/5
+        // POST: Menus/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var menuUl = await _context.MenuUl.FindAsync(id);
-            menuUl.Ativo = false;
-            menuUl.Deletado = true;
-            menuUl.DeletadoData = DateTime.Now;
-            _context.MenuUl.Update(menuUl);
-            //_context.MenuUl.Remove(menuUl);
+            var menu = await _context.Menu.FindAsync(id);
+            menu.Ativo = false;
+            menu.Deletado = true;
+            menu.DeletadoData = DateTime.Now;
+            _context.Menu.Update(menu);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MenuUlExists(int id)
+        private bool MenuExists(int id)
         {
-            return _context.MenuUl.Any(e => e.Id == id);
+            return _context.Menu.Any(e => e.Id == id);
         }
     }
 }

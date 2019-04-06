@@ -1,7 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq;
 using Wodin.Context;
 using Wodin.Models;
-using System.Linq;
 
 namespace Wodin.Services
 {
@@ -14,12 +13,12 @@ namespace Wodin.Services
             _context = context;
         }
 
-        public bool SubMenuExiste(MenuLi menuLi)
+        public bool SubMenuExiste(SubMenu submenu)
         {
-            var temp = _context.MenuLi.Where(d => d.SubMenu == menuLi.SubMenu).OrderBy(d => d.SubMenu);
-            foreach (MenuLi item in temp)
+            var temp = _context.SubMenu.Where(d => d.SubMenus == submenu.SubMenus).OrderBy(d => d.SubMenus);
+            foreach (SubMenu item in temp)
             {
-                if (item.SubMenu == menuLi.SubMenu)
+                if (item.SubMenus == submenu.SubMenus)
                 {
                     return true;
                 }

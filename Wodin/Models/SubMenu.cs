@@ -4,15 +4,15 @@ using Wodin.Models.Base;
 
 namespace Wodin.Models
 {
-    public class MenuLi : CamposComuns
+    public class SubMenu : CamposComuns
     {
         [Column(TypeName = "varchar(128)")]
         [Display(Name = "SubMenu")]
-        public string SubMenu { get; set; }
+        public string SubMenus { get; set; }
 
         [Column(TypeName = "varchar(256)")]
-        [Display(Name = "URL")]
-        public string Url { get; set; }
+        [Display(Name = "Controller")]
+        public string Controller { get; set; }
 
         [Column(TypeName = "varchar(128)")]
         [Display(Name = "Título")]
@@ -20,7 +20,7 @@ namespace Wodin.Models
 
         //Relacionamentos   
         [Display(Name = "Menu")]
-        public int MenuUlId { get; set; }
-        public MenuUl MenuUl { get; set; }
+        public int MenuId { get; set; }
+        public Menu Menu { get; set; }
     }
 }

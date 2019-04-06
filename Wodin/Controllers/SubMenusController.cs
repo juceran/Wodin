@@ -11,43 +11,44 @@ using Wodin.Services;
 
 namespace Wodin.Controllers
 {
-    public class MenuLisController : Controller
+    public class SubMenusController : Controller
     {
         private readonly AdmContext _context;
         private readonly SubMenuService _submenuService;
 
-        public MenuLisController(AdmContext context, SubMenuService submenuService)
+        public SubMenusController(AdmContext context, SubMenuService submenuService)
         {
             _context = context;
             _submenuService = submenuService;
         }
 
-        // GET: MenuLis
+        // GET: SubMenus
         public async Task<IActionResult> Index(int filtroMenu, string filtro)
         {
             ViewData["filtro"] = filtro;
             ViewData["filtroMenu"] = filtroMenu;
-            var salesWebMvcContext = _context.MenuLi.Include(m => m.MenuUl).OrderBy(sm => sm.SubMenu);
-            ViewData["MenuUlId"] = new SelectList(_context.MenuUl.OrderBy(x => x.Menu), "Id", "Menu");
-            ViewBag.filtroMenu = new SelectList(_context.MenuUl.OrderBy(x => x.Menu), "Id", "Menu");
+            var dados = _context.SubMenu.Include(m => m.Menu).OrderBy(sm => sm.SubMenus);
+            ViewData["MenuId"] = new SelectList(_context.Menu.OrderBy(m => m.Menus), "Id", "Menus");
+            ViewBag.filtroMenu = new SelectList(_context.Menu.OrderBy(m => m.Menus), "Id", "Menus");
 
-            if (!String.IsNullOrEmpty(filtro) || filtroMenu != 0 )
+            if(!String.IsNullOrEmpty(filtro) || filtroMenu != 0)
             {
-                if(filtro == null) { filtro = ""; }
+                if (filtro == null) { filtro = ""; }
                 //filtra por submenu
-                return View(await _context.MenuLi
-                                    .OrderBy(x => x.SubMenu)
-                                    .Where(x => x.MenuUlId == filtroMenu)
-                                    .Where(x => x.SubMenu.Contains(filtro))
-                                    .ToListAsync());
+                return View(await _context.SubMenu
+                    .OrderBy(sm => sm.SubMenus)
+                    .Where(sm => sm.MenuId == filtroMenu)
+                    .Where(sm => sm.SubMenus.Contains(filtro))
+                    .ToListAsync()
+                    );
             }
             else
             {
-                return View(await salesWebMvcContext.OrderBy(x => x.SubMenu).ToListAsync());
-            } 
+                return View(await dados.ToListAsync());
+            }          
         }
 
-        // GET: MenuLis/Details/5
+        // GET: SubMenus/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -55,42 +56,42 @@ namespace Wodin.Controllers
                 return NotFound();
             }
 
-            var menuLi = await _context.MenuLi
-                .Include(m => m.MenuUl)
+            var subMenu = await _context.SubMenu
+                .Include(s => s.Menu)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (menuLi == null)
+            if (subMenu == null)
             {
                 return NotFound();
             }
 
-            return View(menuLi);
+            return View(subMenu);
         }
 
-        // GET: MenuLis/Create
+        // GET: SubMenus/Create
         public IActionResult Create()
         {
-            ViewData["MenuUlId"] = new SelectList(_context.MenuUl.OrderBy(x => x.Menu), "Id", "Menu");
+            ViewData["MenuId"] = new SelectList(_context.Menu, "Id", "Menus");
             return View();
         }
 
-        // POST: MenuLis/Create
+        // POST: SubMenus/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SubMenu,Url,Titulo,MenuUlId,Id,Ativo,DataCadastro,UltimaAtualizacao,Deletado,DeletadoData")] MenuLi menuLi)
+        public async Task<IActionResult> Create([Bind("SubMenus,Controller,Titulo,MenuId,Id,Ativo,DataCadastro,UltimaAtualizacao,Deletado,DeletadoData")] SubMenu subMenu)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(menuLi);
+                _context.Add(subMenu);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MenuUlId"] = new SelectList(_context.MenuUl.OrderBy(x => x.Menu), "Id", "Menu", menuLi.MenuUlId);
-            return View(menuLi);
+            ViewData["MenuId"] = new SelectList(_context.Menu, "Id", "Menus", subMenu.MenuId);
+            return View(subMenu);
         }
 
-        // GET: MenuLis/Edit/5
+        // GET: SubMenus/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -98,23 +99,23 @@ namespace Wodin.Controllers
                 return NotFound();
             }
 
-            var menuLi = await _context.MenuLi.FindAsync(id);
-            if (menuLi == null)
+            var subMenu = await _context.SubMenu.FindAsync(id);
+            if (subMenu == null)
             {
                 return NotFound();
             }
-            ViewData["MenuUlId"] = new SelectList(_context.MenuUl.OrderBy(x => x.Menu), "Id", "Menu", menuLi.MenuUlId);
-            return View(menuLi);
+            ViewData["MenuId"] = new SelectList(_context.Menu, "Id", "Menus", subMenu.MenuId);
+            return View(subMenu);
         }
 
-        // POST: MenuLis/Edit/5
+        // POST: SubMenus/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SubMenu,Url,Titulo,MenuUlId,Id,Ativo,DataCadastro,UltimaAtualizacao,Deletado,DeletadoData")] MenuLi menuLi)
+        public async Task<IActionResult> Edit(int id, [Bind("SubMenus,Controller,Titulo,MenuId,Id,Ativo,DataCadastro,UltimaAtualizacao,Deletado,DeletadoData")] SubMenu subMenu)
         {
-            if (id != menuLi.Id)
+            if (id != subMenu.Id)
             {
                 return NotFound();
             }
@@ -123,12 +124,12 @@ namespace Wodin.Controllers
             {
                 try
                 {
-                    _context.Update(menuLi);
+                    _context.Update(subMenu);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MenuLiExists(menuLi.Id))
+                    if (!SubMenuExists(subMenu.Id))
                     {
                         return NotFound();
                     }
@@ -139,11 +140,11 @@ namespace Wodin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MenuUlId"] = new SelectList(_context.MenuUl.OrderBy(x => x.Menu), "Id", "Menu", menuLi.MenuUlId);
-            return View(menuLi);
+            ViewData["MenuId"] = new SelectList(_context.Menu, "Id", "Id", subMenu.MenuId);
+            return View(subMenu);
         }
 
-        // GET: MenuLis/Delete/5
+        // GET: SubMenus/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -151,35 +152,34 @@ namespace Wodin.Controllers
                 return NotFound();
             }
 
-            var menuLi = await _context.MenuLi
-                .Include(m => m.MenuUl)
+            var subMenu = await _context.SubMenu
+                .Include(s => s.Menu)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (menuLi == null)
+            if (subMenu == null)
             {
                 return NotFound();
             }
 
-            return View(menuLi);
+            return View(subMenu);
         }
 
-        // POST: MenuLis/Delete/5
+        // POST: SubMenus/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var menuLi = await _context.MenuLi.FindAsync(id);
-            menuLi.Ativo = false;
-            menuLi.Deletado = true;
-            menuLi.DeletadoData = DateTime.Now;
-            _context.MenuLi.Update(menuLi);
-            //_context.MenuLi.Remove(menuLi);
+            var subMenu = await _context.SubMenu.FindAsync(id);
+            subMenu.Ativo = false;
+            subMenu.Deletado = true;
+            subMenu.DeletadoData = DateTime.Now;
+            _context.SubMenu.Update(subMenu);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MenuLiExists(int id)
+        private bool SubMenuExists(int id)
         {
-            return _context.MenuLi.Any(e => e.Id == id);
+            return _context.SubMenu.Any(e => e.Id == id);
         }
     }
 }

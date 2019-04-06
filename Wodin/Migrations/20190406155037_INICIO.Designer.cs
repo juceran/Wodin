@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Wodin.Context;
@@ -9,9 +10,10 @@ using Wodin.Context;
 namespace Wodin.Migrations
 {
     [DbContext(typeof(WodinContext))]
-    partial class WodinContextModelSnapshot : ModelSnapshot
+    [Migration("20190406155037_INICIO")]
+    partial class INICIO
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

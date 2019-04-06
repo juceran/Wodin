@@ -13,12 +13,12 @@ namespace Wodin.Services
             _context = context;
         }
 
-        public bool MenuExiste(MenuUl menuUl)
+        public bool MenuExiste(Menu menu)
         {
-            var menu = _context.MenuUl.Where(d => d.Menu == menuUl.Menu).OrderBy(d => d.Menu);
-            foreach (MenuUl item in menu)
+            var x = _context.Menu.Where(d => d.Menus == menu.Menus).OrderBy(d => d.Menus);
+            foreach (Menu item in x)
             {
-                if (item.Menu == menuUl.Menu)
+                if (item.Menus == menu.Menus)
                 {
                     return true;
                 }
