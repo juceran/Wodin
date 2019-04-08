@@ -27,6 +27,7 @@ namespace Wodin.Models
         public PessoaJuridica PessoaJuridica { get; set; }
         public ICollection<PessoaTelefone> PessoaTelefone { get; set; } = new List<PessoaTelefone>();
         public PessoaUsuario PessoaUsuario { get; set; }
+        public UsuarioPermissaoAcesso UsuarioPermissaoAcesso { get; set; }
 
     }
 }

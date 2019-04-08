@@ -180,6 +180,7 @@
                 </div>
                 <div class="tab-pane" id="usuario">
                     <div class="form-group col-md-4">
+                        <input asp-for="UsuarioPermissaoAcesso.Ativo" class="form-control" type="hidden"/>
                         <label asp-for="PessoaUsuario.Usuario" class="control-label"></label>
                         <input asp-for="PessoaUsuario.Usuario" class="form-control" placeholder="Usuario" />
                         <span asp-validation-for="PessoaUsuario.Usuario" class="text-danger"></span>

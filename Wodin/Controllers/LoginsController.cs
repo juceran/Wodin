@@ -23,8 +23,12 @@ namespace Wodin.Controllers
         }
 
         public IActionResult Login()
-        {           
-            return View();
+        {
+            Login Login = new Login
+            {
+                CNPJ = "21.373.332/0001-91", Usuario = "JUCERAN", Senha = "1234"
+            };
+            return View(Login);
         }
 
         [HttpPost]
@@ -35,13 +39,13 @@ namespace Wodin.Controllers
             {
                 if (_loginService.ValidarAcesso(login))
                 {
-                    return RedirectToAction("Index", "Pessoas");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
                     ViewData["acesso"] = "Acesso não permitido!";
                     return View("Login");
-                }              
+                }
             }
             else
             {

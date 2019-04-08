@@ -31,6 +31,7 @@ namespace Wodin.Controllers
                                         .Include(p => p.PessoaFornecedor)
                                         .Include(p => p.PessoaJuridica)
                                         .Include(p => p.PessoaUsuario)
+                                        .Include(P => P.UsuarioPermissaoAcesso)
                                         .OrderBy(p => p.Descricao)
                                         .Where(p => p.Deletado == false)
                                         .Where(p => p.EmpresaId == Program.EmpresaId);
@@ -54,6 +55,7 @@ namespace Wodin.Controllers
                 .Include(p => p.PessoaEmail)
                 .Include(p => p.PessoaEndereco)
                 .Include(p => p.PessoaTelefone)
+                .Include(p => p.UsuarioPermissaoAcesso)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (pessoa == null)
             {
@@ -85,7 +87,8 @@ namespace Wodin.Controllers
                 PessoaFornecedor = new PessoaFornecedor(),
                 PessoaFisica = new PessoaFisica(),
                 PessoaJuridica = new PessoaJuridica(),
-                PessoaUsuario = new PessoaUsuario()
+                PessoaUsuario = new PessoaUsuario(),
+                UsuarioPermissaoAcesso = new Models.UsuarioPermissaoAcesso()
             };
             FormaPagamento formaPagamento = new FormaPagamento();
             ViewData["FormaRecebimentoId"] = new SelectList(_context.FormaPagamento
@@ -118,7 +121,7 @@ namespace Wodin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("EmpresaId,Descricao,DataCadastro,Ativo,UltimaAtualizacao,Deletado,DeletadoData," +
-            "PessoaCliente,PessoaFornecedor,PessoaFisica,PessoaJuridica,PessoaUsuario")] Pessoa pessoa)
+            "PessoaCliente,PessoaFornecedor,PessoaFisica,PessoaJuridica,PessoaUsuario,UsuarioPermissaoAcesso")] Pessoa pessoa)
         {
             if (ModelState.IsValid)
             {
@@ -132,6 +135,11 @@ namespace Wodin.Controllers
                 pessoa.PessoaFisica.CPF = RemoverCaracteres.StringSemFormatacao(pessoa.PessoaFisica.CPF);
                 pessoa.PessoaJuridica.CNPJ = RemoverCaracteres.StringSemFormatacao(pessoa.PessoaJuridica.CNPJ);
                 pessoa.PessoaUsuario.PessoaUsuarioSenha.Senha = CodificarString.RetornarMD5(pessoa.PessoaUsuario.PessoaUsuarioSenha.Senha);
+
+                if(pessoa.PessoaUsuario.User == true)
+                {
+                    pessoa.UsuarioPermissaoAcesso.EmpresaId = Program.EmpresaId; 
+                }
 
                 _context.Add(pessoa);
                 await _context.SaveChangesAsync();
@@ -153,6 +161,7 @@ namespace Wodin.Controllers
                           .Include(p => p.PessoaFornecedor)
                           .Include(p => p.PessoaJuridica)
                           .Include(p => p.PessoaUsuario)
+                          .Include(p => p.UsuarioPermissaoAcesso)
                           .FirstOrDefaultAsync(m => m.Id == id);
             //var pessoa = await _context.Pessoa.FindAsync(id);
 
@@ -195,7 +204,8 @@ namespace Wodin.Controllers
                                                             "PessoaFornecedor," +
                                                             "PessoaFisica," +
                                                             "PessoaJuridica," +
-                                                            "PessoaUsuario")] Pessoa pessoa)
+                                                            "PessoaUsuario," +
+                                                            "UsuarioPermissaoAcesso")] Pessoa pessoa)
         {
             if (id != pessoa.Id)
             {
@@ -244,6 +254,7 @@ namespace Wodin.Controllers
                 .Include(p => p.PessoaFornecedor)
                 .Include(p => p.PessoaJuridica)
                 .Include(p => p.PessoaUsuario)
+                .Include(p => p.UsuarioPermissaoAcesso)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (pessoa == null)
             {

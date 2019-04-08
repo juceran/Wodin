@@ -20,12 +20,19 @@ namespace Wodin.Controllers
         }
 
         // GET: UsuarioPermissaoAcessos
-        public async Task<IActionResult> Index(int filtroUsuario, string filtro)
+        public async Task<IActionResult> Index(string filtro)
         {
             ViewData["filtro"] = filtro;
-            ViewData["filtroMenu"] = filtroUsuario;
 
-            var wodinContext = _context.UsuarioPermissaoAcesso.Include(u => u.Empresa).Include(p => p.Pessoa);
+            if (filtro == null) { filtro = ""; }
+            //filtra por usuario
+            var wodinContext = _context.UsuarioPermissaoAcesso
+                .Include(e => e.Empresa)
+                .Include(p => p.Pessoa)
+                .Include(pe => pe.Pessoa.PessoaFisica)
+                .Include(pu => pu.Pessoa.PessoaUsuario)
+                .Where(w => w.Pessoa.PessoaUsuario.Usuario.Contains(filtro));
+
             return View(await wodinContext.ToListAsync());
         }
 
@@ -52,7 +59,7 @@ namespace Wodin.Controllers
         public IActionResult Create()
         {
             ViewData["EmpresaId"] = new SelectList(_context.Empresa, "Id", "Fantasia");
-            ViewData["PessoaId"] = new SelectList(_context.PessoaUsuario, "PessoaId", "Usuario");
+            ViewData["PessoaId"] = new SelectList(_context.Pessoa, "PessoaId", "PessoaUsuario.Usuario");
             return View();
         }
 
@@ -69,7 +76,7 @@ namespace Wodin.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EmpresaId"] = new SelectList(_context.Empresa, "Id", "Uf", usuarioPermissaoAcesso.EmpresaId);
+            ViewData["EmpresaId"] = new SelectList(_context.Empresa, "Id", "Fantasia", usuarioPermissaoAcesso.EmpresaId);
             return View(usuarioPermissaoAcesso);
         }
 
@@ -86,7 +93,7 @@ namespace Wodin.Controllers
             {
                 return NotFound();
             }
-            ViewData["EmpresaId"] = new SelectList(_context.Empresa, "Id", "Uf", usuarioPermissaoAcesso.EmpresaId);
+            ViewData["EmpresaId"] = new SelectList(_context.Empresa, "Id", "Fantasia", usuarioPermissaoAcesso.EmpresaId);
             return View(usuarioPermissaoAcesso);
         }
 
@@ -122,7 +129,7 @@ namespace Wodin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EmpresaId"] = new SelectList(_context.Empresa, "Id", "Uf", usuarioPermissaoAcesso.EmpresaId);
+            ViewData["EmpresaId"] = new SelectList(_context.Empresa, "Id", "Fantasia", usuarioPermissaoAcesso.EmpresaId);
             return View(usuarioPermissaoAcesso);
         }
 

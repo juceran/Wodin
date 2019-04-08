@@ -7,9 +7,9 @@
 <h2>@ViewData["Title"]</h2>
 <h2>@ViewData["Message"]</h2>
 
-<p>
-    <a asp-action="Create" class="btn btn-default" title="Deseja cadastrar nova permissão?"><span class="glyphicon glyphicon-plus-sign"></span> Novo</a>
-</p>
+@*<p>
+        <a asp-action="Create" class="btn btn-default" title="Deseja cadastrar nova permissão?"><span class="glyphicon glyphicon-plus-sign"></span> Novo</a>
+    </p>*@
 <form asp-action="Index" method="get">
     <div class="form-actions no-color col-sm-4">
         <p>
@@ -21,8 +21,15 @@
     </div>
     <div class="form-actions no-color col-sm-4 text-right">
         <p>
-            <input type="reset" value="Limpar" class="btn btn-default" />
+            <input type="reset" value="Limpar" class="btn btn-default" onclick="this.form.reset();return false" />
             <input type="submit" value="Filtrar" class="btn btn-default" />
+        </p>
+    </div>
+</form>
+<form asp-action="Index/filtro" method="get">
+    <div class="form-actions no-color col-sm-4 text-right">
+        <p>
+            <input type="submit" value="Limpar" class="btn btn-default"/>
         </p>
     </div>
 </form>
@@ -44,22 +51,22 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(Model => item.Pessoa.PessoaUsuario.Usuario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pessoa.PessoaFisica.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Empresa.Fantasia)
-            </td>
-            <td>
-                <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.Id" title="Editar Permissão"><span class="glyphicon glyphicon-edit"></span></a>
-                <a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id" title="Detalhes da Permissão"><span class="glyphicon glyphicon-eye-open"></span></a>
-                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id" title="Deletar Permissão"><span class="glyphicon glyphicon-trash"></span></a>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(Model => item.Pessoa.PessoaUsuario.Usuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pessoa.PessoaFisica.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Empresa.Fantasia)
+                </td>
+                <td>
+                    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.Id" title="Editar Permissão"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id" title="Detalhes da Permissão"><span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id" title="Deletar Permissão"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>

@@ -22,5 +22,6 @@ namespace Wodin.Models
         public virtual Pessoa Pessoa { get; set; }
 
         public PessoaUsuarioSenha PessoaUsuarioSenha { get; set; }
+        
     }
 }
