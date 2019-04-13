@@ -22,6 +22,7 @@ namespace Wodin.Models
         public string Pai { get; set; }
 
         [Column(TypeName = "varchar(128)")]
+        [Display(Name = "Mãe")]
         public string Mae { get; set; }
 
         [Column(TypeName = "varchar(16)")]

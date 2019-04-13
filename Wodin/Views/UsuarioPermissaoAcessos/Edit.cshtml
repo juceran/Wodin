@@ -1,110 +1,102 @@
 ﻿@model Wodin.Models.UsuarioPermissaoAcesso
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Nova Permissão";
 }
 
-<h2>Edit</h2>
-
-<h4>UsuarioPermissaoAcesso</h4>
+<h2>@ViewData["Title"]</h2>
+<h4>@ViewData["Message"]</h4>
 <hr />
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color col-sm-4">
+        <p>
+            @Html.DisplayNameFor(model => model.Menu): @Html.DropDownList("filtroMenu", "Todos")
+        </p>
+    </div>
+    <div class="form-actions col-sm-4">
+        <p>
+            @Html.DisplayNameFor(model => model.Empresa): @Html.DropDownList("filtroEmpresa", "Todos")
+        </p>
+    </div>
+    <div class="form-actions no-color col-sm-4 text-right">
+        <p>
+            <input type="reset" value="Limpar" class="btn btn-default" onclick="this.form.reset();return false" />
+            <input type="submit" value="Filtrar" class="btn btn-default" />
+        </p>
+    </div>
+</form>
+
+
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group col-sm-2">
+                <input asp-for="Menu" class="form-control" />
+            </div>
+            <div class="form-group col-sm-2">
+                <input asp-for="Submenu" class="form-control" />
+            </div>
+            <div class="form-group col-sm-1">
                 <div class="checkbox">
                     <label>
                         <input asp-for="Visualizar" /> @Html.DisplayNameFor(model => model.Visualizar)
                     </label>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group col-sm-1">
                 <div class="checkbox">
                     <label>
                         <input asp-for="Incluir" /> @Html.DisplayNameFor(model => model.Incluir)
                     </label>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group col-sm-1">
                 <div class="checkbox">
                     <label>
                         <input asp-for="Editar" /> @Html.DisplayNameFor(model => model.Editar)
                     </label>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group col-sm-1">
                 <div class="checkbox">
                     <label>
                         <input asp-for="Imprimir" /> @Html.DisplayNameFor(model => model.Imprimir)
                     </label>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group col-sm-1">
                 <div class="checkbox">
                     <label>
                         <input asp-for="Baixar" /> @Html.DisplayNameFor(model => model.Baixar)
                     </label>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group col-sm-1">
                 <div class="checkbox">
                     <label>
                         <input asp-for="Cancelar" /> @Html.DisplayNameFor(model => model.Cancelar)
                     </label>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group col-sm-1">
                 <div class="checkbox">
                     <label>
                         <input asp-for="CancelarBaixa" /> @Html.DisplayNameFor(model => model.CancelarBaixa)
                     </label>
                 </div>
             </div>
-            <div class="form-group">
-                <label asp-for="EmpresaId" class="control-label"></label>
-                <select asp-for="EmpresaId" class="form-control" asp-items="ViewBag.EmpresaId"></select>
-                <span asp-validation-for="EmpresaId" class="text-danger"></span>
-            </div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="Ativo" /> @Html.DisplayNameFor(model => model.Ativo)
-                    </label>
+
+            <div class="form-group col-sm-12">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> Salvar</button>
+                    <a asp-action="Index" class="btn btn-primary"><span class="glyphicon glyphicon-th-list"></span> Voltar</a>
                 </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="DataCadastro" class="control-label"></label>
-                <input asp-for="DataCadastro" class="form-control" />
-                <span asp-validation-for="DataCadastro" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UltimaAtualizacao" class="control-label"></label>
-                <input asp-for="UltimaAtualizacao" class="form-control" />
-                <span asp-validation-for="UltimaAtualizacao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="Deletado" /> @Html.DisplayNameFor(model => model.Deletado)
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="DeletadoData" class="control-label"></label>
-                <input asp-for="DeletadoData" class="form-control" />
-                <span asp-validation-for="DeletadoData" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

@@ -23,7 +23,7 @@ namespace Wodin.Controllers
         }
 
         // GET: SubMenus
-        public async Task<IActionResult> Index(int filtroMenu, string filtro)
+        public async Task<IActionResult> Index(int? filtroMenu, string filtro)
         {
             ViewData["filtro"] = filtro;
             ViewData["filtroMenu"] = filtroMenu;

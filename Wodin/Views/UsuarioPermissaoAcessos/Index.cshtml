@@ -13,7 +13,7 @@
 <form asp-action="Index" method="get">
     <div class="form-actions no-color col-sm-4">
         <p>
-            Usuário : <input type="search" name="filtro" id="filtro" value="@ViewData["filtro"]" />
+            Usuário : <input type="search" name="filtro" id="filtro" value="@ViewData["filtro"]" onkeyup="myFunction()"/>
         </p>
     </div>
     <div class="form-actions no-color col-sm-4">
@@ -23,13 +23,6 @@
         <p>
             <input type="reset" value="Limpar" class="btn btn-default" onclick="this.form.reset();return false" />
             <input type="submit" value="Filtrar" class="btn btn-default" />
-        </p>
-    </div>
-</form>
-<form asp-action="Index/filtro" method="get">
-    <div class="form-actions no-color col-sm-4 text-right">
-        <p>
-            <input type="submit" value="Limpar" class="btn btn-default"/>
         </p>
     </div>
 </form>

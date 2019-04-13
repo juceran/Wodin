@@ -13,11 +13,15 @@ namespace Wodin.Controllers
     public class UsuarioPermissaoAcessosController : Controller
     {
         private readonly WodinContext _context;
+        private readonly AdmContext _admContext;
 
-        public UsuarioPermissaoAcessosController(WodinContext context)
+        public UsuarioPermissaoAcessosController(WodinContext context, AdmContext admContext)
         {
             _context = context;
+            this._admContext = admContext;
         }
+
+
 
         // GET: UsuarioPermissaoAcessos
         public async Task<IActionResult> Index(string filtro)
@@ -81,12 +85,18 @@ namespace Wodin.Controllers
         }
 
         // GET: UsuarioPermissaoAcessos/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? id, int? filtroMenu)
         {
             if (id == null)
             {
                 return NotFound();
             }
+
+            ViewData["filtroMenu"] = filtroMenu;
+            var dados = _context.UsuarioPermissaoAcesso;
+            ViewData["MenuId"] = new SelectList(_admContext.Menu.OrderBy(m => m.Menus), "Id", "Menus");
+            ViewBag.filtroMenu = new SelectList(_admContext.Menu.OrderBy(m => m.Menus), "Id", "Menus");
+            ViewBag.filtroEmpresa = new SelectList(_context.Empresa, "Id", "Fantasia");
 
             var usuarioPermissaoAcesso = await _context.UsuarioPermissaoAcesso.FindAsync(id);
             if (usuarioPermissaoAcesso == null)

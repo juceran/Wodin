@@ -33,6 +33,7 @@ namespace Wodin.Models
 
         [Required]
         [DefaultValue(false)]
+        [Display(Name = "Canc. Baixa")]
         public bool CancelarBaixa { get; set; }
 
         //referencias de relacionamentos
