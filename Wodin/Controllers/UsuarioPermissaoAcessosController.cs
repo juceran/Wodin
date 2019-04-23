@@ -93,11 +93,17 @@ namespace Wodin.Controllers
             }
 
             ViewData["filtroMenu"] = filtroMenu;
-            var dados = _context.UsuarioPermissaoAcesso;
+            if(filtroMenu != null)
+            {
+                var menus = _admContext.Menu;
+                var dados = _context.UsuarioPermissaoAcesso.Where(x => x.Menu == filtroMenu);
+            }
+            
             ViewData["MenuId"] = new SelectList(_admContext.Menu.OrderBy(m => m.Menus), "Id", "Menus");
             ViewBag.filtroMenu = new SelectList(_admContext.Menu.OrderBy(m => m.Menus), "Id", "Menus");
             ViewBag.filtroEmpresa = new SelectList(_context.Empresa, "Id", "Fantasia");
 
+            //var usuarioPermissaoAcesso = _context.UsuarioPermissaoAcesso.Where(x => x.PessoaId == id);            
             var usuarioPermissaoAcesso = await _context.UsuarioPermissaoAcesso.FindAsync(id);
             if (usuarioPermissaoAcesso == null)
             {

@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Wodin.Models.Base;
+using Wodin.Models.Enums;
 
 namespace Wodin.Models
 {
@@ -22,6 +23,9 @@ namespace Wodin.Models
         public virtual Pessoa Pessoa { get; set; }
 
         public PessoaUsuarioSenha PessoaUsuarioSenha { get; set; }
-        
+
+        //enums
+        [Display(Name = "Usuário Padrão")]
+        public UsuarioTipo UsuarioTipo { get; set; }
     }
 }

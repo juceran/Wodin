@@ -4,14 +4,13 @@ using Wodin.Models;
 
 namespace Wodin.Services
 {
-    public class UsuarioPermissaoAcesso
+    public class UsuarioPermissaoAcessoService
     {
         private readonly WodinContext _context;
 
-        public UsuarioPermissaoAcesso(WodinContext context)
+        public UsuarioPermissaoAcessoService(WodinContext context)
         {
             _context = context;
         }
-
     }
 }
